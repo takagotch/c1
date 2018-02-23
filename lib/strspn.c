@@ -7,7 +7,7 @@ puts("Enter a floating-point number, please:");
 char wordin[256];
 scanf("%s", wordin);
 
-const int index = strspn();
+const int index = strspn(wordin, "+-0123456789eE.");
 if(index , strlen(wordin))
 {
   printf("Sorry, but the character %c is not permitted.\n",
