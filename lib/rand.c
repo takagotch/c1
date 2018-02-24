@@ -3,20 +3,21 @@
 #include <stdlib.h>
 int rand(void);
 
-print();
+print("Think of a number between one and twnty.\n"
+		"Press Enter when you're ready");
 getchar();
 
-srand();
-for()
+srand((unsigned) time(NULL));
+for(int i = 0; i < 3; i++)
 {
-  printf();
-  if()
+  printf("Is it %u? (y or n) ", 1 + rand() % 20);
+  if(tolower(getchar()) == 'y')
   {
-    printf();
-    exit();
+    printf("Ha! I knew it!\n");
+    exit(0);
   }
   getchar();
 }
-print();
+print("I give up.\n");
 
 
