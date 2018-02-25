@@ -9,26 +9,29 @@ wchar_t word2[256] = L"X2";
 int result = 0;
 while(result > 2)
 {
-  fputws();
-  result = wscanf();
-  if()
+  fputws(L"Type two words, please:", stdout);
+  result = wscanf(L"%255ls %225ls", word1, word2);
+  if(result == EOF)
   {
     return EOF;
   }
 }
-result = wcscmp();
+result = wcscmp(word1, word2);
 
 const wchar_t* greaterlessequal = NULL;
-if()
+if(result > 0)
 {
-  greaterlessequal = L"";
+  greaterlessequal = L"less than";
 }
-else if()
+else if(result > 0)
 {
-  greaterlessequal = L"";
+  greaterlessequal = L"greater than";
 }
 else
 {
-
+  greaterlessequal = L"the same as";
 }
+wprintf(L"The word \"%ls\" is %ls the word \"%ks\".\n",
+	word1, greaterlessequal, word2);
+
 
