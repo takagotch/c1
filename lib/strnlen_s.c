@@ -7,7 +7,7 @@ size_t strnlen_s(const char* s, size_t maxsize);
 #include <string.h>
 
 const char str[] = "hello";
-const size_t len = strnlen_s(str, 1000U);
+const size_t len = strnlen_s(str, 1000U); //len = 5
 if(strnlen_s(str, 4) == 4)
 {
   /* str 4++ */
