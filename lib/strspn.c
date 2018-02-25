@@ -1,5 +1,6 @@
 // strcpn(), wcsspn()
 //
+
 #include <string.h>
 int strspn(const char* s1, const char* s2);
 
