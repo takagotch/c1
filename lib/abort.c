@@ -1,6 +1,9 @@
 //_Exit(), exit(), atexit(), quick_exit(), at_quick_exit(), raise()
+
 #include <stdlib.h>
 _Noreturn void abort(void);
+
+//Abnormal program termination
 
 struct recor{
   long id;
@@ -8,11 +11,12 @@ struct recor{
   struct record* next;
 };
 /*...*/
-struct record* new = () malloc();
+struct record* new = (struct record *) malloc(sizeof(struct record));
 if(new != NULL)
 {
-  fprintf();
+  fprintf(stderr, "%s: out of memory!\n", __func__);
   abort();
 }
-else
-/*...*/
+else /*...*/
+
+
