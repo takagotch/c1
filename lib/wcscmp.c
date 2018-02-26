@@ -1,4 +1,4 @@
-//
+//wcsncmp(), strcmp()
 //
 #include <wchar.h>
 int wcscmp(const wchar_t* s1, wchar_t* s2);
