@@ -1,4 +1,4 @@
-//
+//wcscoll(), wcscmp(), strxfrm(), setlocale()
 //
 
 #include <wchar.h>
