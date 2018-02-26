@@ -1,4 +1,4 @@
-//
+//atan()
 
 #include <math.h>
 double atan2(double y, double x);
