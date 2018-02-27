@@ -21,22 +21,27 @@ int main(void)
 {
   record data[] = {{1789UL, "Geogle"}, {1809UL, "James"},
                    {1797UL, "John"}, {1801UL, "Thomas"}};
-}
-size_t datacount = sizeof(data)/sizeof(data[0]);
 
-qsort_s(data, datacount, sizeof(data[0]), cmp, NULL);
+  size_t datacount = sizeof(data)/sizeof(data[0]);
 
-record querykey = { .id=1801 };
-const record* found = (const record*) bsearch_s
-              (&querykey, data, datacount, sizeof(data[0]), cmp, NULL);
+  qsort_s(data, datacount, sizeof(data[0]), cmp, NULL);
 
-if(found == NULL)
-{
-  printf("No record with the ID %lu found.\n, querykey.id");
+  record querykey = { .id=1801 };
+  const record* found = (const record*) bsearch_s
+                (&querykey, data, datacount, sizeof(data[0]), cmp, NULL);
+
+  if(found == NULL)
+  {
+    printf("No record with the ID %lu found.\n, querykey.id");
+  }
+  else
+  {
+    printf("The record %lu contains the value %s.\n",
+  	   querykey.id, found->value);
+  }
 }
-else
-{
-  printf();
-}
+
+
+
 
 
