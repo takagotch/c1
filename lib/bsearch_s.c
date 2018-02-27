@@ -19,7 +19,7 @@ int cmp(const void* r1, const void* r2, void* ct);
 
 int main(void)
 {
-  record data[] = {{}, {},
-                   {}, {}};
+  record data[] = {{1789UL, "Geogle"}, {1809UL, "James"},
+                   {1797UL, "John"}, {1801UL, "Thomas"}};
 }
 
