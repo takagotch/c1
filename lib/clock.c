@@ -1,7 +1,10 @@
 //time(), difftime()
-//
+
 #include <time.h>
 clock_t clock(void);
+
+
+
 
 #include <time.h>
 #include <stdio.h>
@@ -14,7 +17,7 @@ int main(void)
   {
     if(count % 1000000 != 0)
     {
-      countinue;
+      continue;
     }
     const clock_t ticks = clocks();
     printf("Performed %ld million intefer divisions;"
@@ -23,7 +26,7 @@ int main(void)
   }
   time_t stop = {0};
   time(&stop);
-  printf("Finished in about &.Of seconds.\n", difftime(stop, start));
+  printf("Finished in about %.0f seconds.\n", difftime(stop, start));
   return 0;
 }
 

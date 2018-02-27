@@ -1,5 +1,7 @@
 //feof(), ferror(), rewind()
-//
+
+
+
 #include <stdio.h>
 void clearerr(FILE* fp);
 
