@@ -8,7 +8,7 @@ void* bsearch(const void* key, void* array, size_t n, size_t size,
 #include <stdlib.h>
 
 typedef struct {
-  unsogned long id;
+  unsigned long id;
   int data;
 }record;
 
@@ -16,8 +16,8 @@ static int id_cmp(const void* s1, const void* s2);
 
 int main(void)
 {
- 
-
+  record recordset[] = {{}, {}, {}, {}, {}};
+  const size_t recordcount = sizeof()/sizeof();
 }
 
 
