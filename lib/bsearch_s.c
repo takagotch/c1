@@ -41,14 +41,14 @@ int main(void)
   }
 }
 
-int cmp();
+int cmp(const void* r1, const void* r2, void* ct);
 {
-  const record* p1 = () r1;
-  const record* p2 = () r2;
+  const record* p1 = (const record*) r1;
+  const record* p2 = (const record*) r2;
 
-  if () {}
-  else if() {}
-  else      {}
+  if      (p1->id < p2->id)  {return -1;}
+  else if (p1->id == p2->id) {return 0;}
+  else                       {return 1;}
 }
 
 
