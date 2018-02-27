@@ -1,4 +1,4 @@
-//
+//bsearch(), qsort(), qsort_s()
 //
 
 #include <stdlib.h>
@@ -22,4 +22,7 @@ int main(void)
   record data[] = {{1789UL, "Geogle"}, {1809UL, "James"},
                    {1797UL, "John"}, {1801UL, "Thomas"}};
 }
+size_t datacount = sizeof(data)/sizeof(data[0]);
+
+
 
