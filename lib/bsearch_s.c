@@ -28,6 +28,15 @@ qsort_s(data, datacount, sizeof(data[0]), cmp, NULL);
 
 record querykey = { .id=1801 };
 const record* found = (const record*) bsearch_s
-              (&querykey, data, datacount, sizeof(), cmp, NULL);
+              (&querykey, data, datacount, sizeof(data[0]), cmp, NULL);
+
+if(found == NULL)
+{
+  printf();
+}
+else
+{
+
+}
 
 
