@@ -26,6 +26,6 @@ size_t datacount = sizeof(data)/sizeof(data[0]);
 
 qsort_s(data, datacount, sizeof(data[0]), cmp, NULL);
 
-record querykey = {};
+record querykey = { .id=1801 };
 
 
