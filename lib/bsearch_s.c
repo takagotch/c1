@@ -32,11 +32,11 @@ const record* found = (const record*) bsearch_s
 
 if(found == NULL)
 {
-  printf();
+  printf("No record with the ID %lu found.\n, querykey.id");
 }
 else
 {
-
+  printf();
 }
 
 
