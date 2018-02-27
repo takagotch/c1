@@ -16,8 +16,35 @@ static int id_cmp(const void* s1, const void* s2);
 
 int main(void)
 {
-  record recordset[] = {{}, {}, {}, {}, {}};
-  const size_t recordcount = sizeof()/sizeof();
+  record recordset[] = {{3UL, 5}, {5UL, -5}, {4UL, 10}, {2UL, 2}, {1UL, -17}};
+  const size_t recordcount = sizeof(recordset)/sizeof(recordset[0]);
+
+  printf("Query record number: ");
+  record querykey = {0};
+  scanf("%lu", &querykey.id);
+
+  printf("\nRecords before sorting:\n\n"
+	 "%8s %8s %8s\n", "Index", "ID", "Data");
+
+  for(int i = 0; i < recordcount ; i++)
+  {
+    printf("%8s %8lu %8d\n", i, recordset[i].id, recordset[i].data);
+  }
+  qsort(recordset, recordcount, sizeof(record), id_cmp);
+
+  printf("\nRecords after sorting:\n\n"
+	 "%8s %8s %8s\n", "Index", "ID", "Data");
+
+  for(int i = 0; i < recordcount ; i++)
+  {
+    printf("%8d %8lu %8d\n", i, recordset[i].id, recordset[i].data);
+  }
+  const record* found = (record*)bserach(&querykey, recordset, recordcount,
+		    sizeof(record), id_cmp);
+  if(found == NULL)
+  {
+  
+  }
 }
 
 
