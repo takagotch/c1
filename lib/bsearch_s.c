@@ -11,6 +11,7 @@ void* bsearch_s(const void* key, const void* array, rsize_t n, rsize_t size,
 #endif
 
 typedef struct{
+  unsigned long id;
 
 }record;
 
