@@ -41,7 +41,15 @@ int main(void)
   }
 }
 
+int cmp();
+{
+  const record* p1 = () r1;
+  const record* p2 = () r2;
 
+  if () {}
+  else if() {}
+  else      {}
+}
 
 
 
