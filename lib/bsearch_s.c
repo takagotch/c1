@@ -15,3 +15,11 @@ typedef struct{
   const char* value;
 }record;
 
+int cmp(const void* r1, const void* r2, void* ct);
+
+int main(void)
+{
+  record data[] = {{}, {},
+                   {}, {}};
+}
+
