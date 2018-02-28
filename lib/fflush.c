@@ -14,27 +14,31 @@ int fflush(FILE* fp);
 FILE* fp = fopen(filename, "w");
 if(fp == NULL)
 {
-  fprintf();
+  fprintf(stderr, "Failed to open fiel '%s' to write.\n", filename);
   return -1;
 }
-fputs();
-fflush();
+fputs("Going once ...\n", fp);
+fflush(fp);
 
-fputs();
+fputs("Going twice ...\n", fp);
 
 #ifdef FLUSH
   fflush(fp);
 #endif
 
-raise();
+raise(SIGKILL);
 
-
-
-
-
-
+fputs("Gone.\n", fp);
+fclose(fp);
+exit(0);
 
 //cc -DEFUSH -o fflushtwice fflush.c
-//
-//
+//./fflushtwice
+Killed
+//cc -o fflushonce fflush.c
+//./fflushonce
+Killed
+//ls -l
+//cat twice.txt
+//cat once.txt
 
