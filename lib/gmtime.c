@@ -1,4 +1,5 @@
-//
+//gmtime_s(), localtime(), localtime_s(), strftime(), time()
+
 
 
 
