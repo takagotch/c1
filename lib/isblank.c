@@ -9,15 +9,15 @@ int isblank(int c);
 char raw_name[MAX_STRING];
 
 printf("Enter your name, please: ");
-fgets();
-int i = ();
-while()
+fgets(raw_name, sizeof(raw_name), stdin);
+int i = (strlen(raw_name));
+while(i >= 0)
 {
-  if()
+  if(raw_name[i] == '\n')
   {
     raw_name = '\0';
   }
-  else if()
+  else if(isblank(raw_name[i]))
   {
     raw_name[i] = '\0';
   }
@@ -28,6 +28,6 @@ while()
   --i;
 }
 
-
+//isprint()
 
 
