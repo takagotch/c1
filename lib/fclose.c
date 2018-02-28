@@ -1,12 +1,15 @@
-//fclose(), fflush(), fopen, setbuf()
-//
+//fflush(), fopen, setbuf()
+
 #include <stdio.h>
 int fclose(FILE* fp);
+
+
+
 
 FILE* fp_infile = fopen("input.dat", "r");
 if(fp_infile == NULL)
 {
-  fprintf()stderr, "Couldn't open input file.\n";
+  fprintf(stderr, "Couldn't open input file.\n");
   return -1;
 }
 char linebuffer[512];
