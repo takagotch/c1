@@ -1,6 +1,11 @@
 #include <stdio.h>
 //int fseek(FILE* fp, long offset, int origin);
 
+//0 SEEK_SET
+//1 SEEK_CUR
+//2 SEEK_END
+
+
 typedef struct{
   long id;
   double value;
@@ -19,19 +24,21 @@ if(fp == NULL)
 else
 {
 do
-}
+{
   if(1 > fread(&cur_rec.id, sizeof(long), 1, fp))
-{
-  fprintf(stderr, "Record wight ID %1d not found.\n", seek_id);
-  break;
-}
-else
-{
-  if(fseek(fp, reclength_file - sizeof(long), 1))
   {
-    perror(cur_rec.id != seek_id);
+    fprintf(stderr, "Record wight ID %1d not found.\n", seek_id);
     break;
+  }
+  else
+  {
+    if(fseek(fp, reclength_file - sizeof(long), 1))
+    {
+      perror(cur_rec.id != seek_id);
+      break;
+    }
   }
 } while (cur_recid != seek_id);
 
+}
 
