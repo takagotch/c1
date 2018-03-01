@@ -1,5 +1,7 @@
 //localtime(), gmtime(), gmtime_s(), strftime(), time()
-//
+
+
+
 #include <time.h>
 struct tm* localtime_s(const time_t* restrict timer, struct tm* restrict result);
 
