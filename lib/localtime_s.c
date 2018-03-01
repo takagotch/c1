@@ -17,7 +17,7 @@ if(localtime_s(&timeStruct, &now) == 0)
   timeStruct.tm_year += 1;
 
   char timeStr[26];
-  if(asctime_s(timeStr, sizeof(timeStr)), &timeStruct) == 0
+  if(asctime_s(timeStr, sizeof(timeStr), &timeStruct) == 0)
   {
     printf("A year from today: %s", timeStr);
   }
