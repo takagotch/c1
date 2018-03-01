@@ -1,5 +1,6 @@
 //printf(), scanf(), scanf_s()
-//
+
+
 #include <stdio.h>
 int printf(const char* restrict format, );
 

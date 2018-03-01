@@ -1,24 +1,41 @@
 //
+
+#include <stdio.h>
+int printf(const char* restrict format, ... );
+
+//%[flags][field width][.precision][length modifier]specifier
+//+
+//' '
+//-
+//0
+//#
+
+//hh d,i,o,u,x,X signed char || unsigned char
+//hh n           signed char*
+//h  d,i,o,u,x,X short int || unsigned short int
 //
+//...
+
+//d,i int 
+//u unsigned in
 //
+//...
+
+
+//double pi = 3.1415926;
+//double bignumber = 8 * 8 * 8 * pi * pi;
+//printf("512 times pi cubes equals %.2e, or %.2a.\n", bignumber, bignumber);
+
+//intN_t, unintN_t PRIdW,PRIiN, PRIoN, PRIuN, PRIxN, PRIXN
+//...
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+//int fast16_t counter = 1001;
+//while(--counter)
+//{
+//  printf("Only %" PRIiFAST16 " nights to go.\n", counter);
+//}
+
 
 static void print_line(double x)
 {
@@ -33,5 +50,5 @@ static void print_line(double x)
 //printf(),vprintf(),vfprintf(),vsnprintf()
 //printf(),vwprint(), vfwprint(), vswprint()
 //scanf(), sscanf(), fscanf()
-//
+//__STDC_LIB_EXT1__
 
