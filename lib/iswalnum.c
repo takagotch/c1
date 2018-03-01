@@ -8,24 +8,26 @@ int iswalnum(wint_t wc);
 
 
 setlocale(LC_CTYPE, "");
-wprintf();
-wprintf();
+wprintf(L"\nThe current locale for the 'is ...' functions is '%s'.\n"
+	setlocale(LC_CTYPE, NULL));
+wprintf(L"These are the alphanumeric wide characters"
+	" in theis locale:\n\n");
 int i = 0;
-for()
+for(wint_t wc = 0; wc < 1024; wc++)
 {
-  if()
+  if(iswalnum(wc))
   {
-    if()
+    if(i % 25 == 0)
     {
-      wprintf();
-      ()getchar();
-      wprintf();
-      wprintf();
+      wprintf(L"... more ...\n");
+      (void)getchar();
+      wprintf(L"Wide character Code\n");
+      wprintf(L"-------------------\n");
     }
-    wprintf();
+    wprintf(L"%5lc %4u\n", wc, wc);
     i++;
   }
-  wprintf();
+  wprintf(L"--------------------\n");
   return 0;
 }
 
