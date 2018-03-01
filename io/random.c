@@ -7,11 +7,11 @@ FILE* fp = fopen("messages.txt", "r");
 if(fp != NULL)
 {
   int i = 0, c1 = '\n', c2;
-  while()
+  while(i < ARRAY_LEN && (c2 = getc(fp)) != EOF)
   {
-    if()
+    if(c1 == '\n' && c2 == '#')
     {
-      arrPos[] = ftell() - 1;
+      arrPos[i++] = ftell(fp) - 1;
     }
     c1 = c2;
   }
