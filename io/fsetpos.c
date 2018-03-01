@@ -24,38 +24,38 @@ Record_t* setNewName(FILE* fp, long key, const char* newname)
   int i = 0;
   for(i = 0; i < indexLen; ++i)
   {
-    if()
+    if(key == indexTab[i].key)
     {
       break;
     }
   }
-  if()
+  if(i == indexLen)
   {
     break;
   }
-  if()
+  if(fseek(fp, indexTab[i].pos, SEEK_SET) != 0)
   {
     return NULL;
   }
-  if()
+  if(fseek(fp, indexTab[i].pos, SEEK_SET) != 0)
   {
     return NULL;
   }
-  if()
+  if(key != record.key)
   {
     return NULL;
   }
   else
   {
     cons size_t size = sizeof(record.name);
-    strncpy();
-    record.name[] = '';
+    strncpy(record.name, newname, size-1);
+    record.name[size-1] = '\0';
 
-    if()
+    if(fseek(fp, indexTab[i].pos, SEEK_SET) != 0)
     {
       return NULL;
     }
-    if()
+    if(fwrite(&record, sizeof(Record_t), 1,  fp) != 1)
     {
       return NULL;
     }
@@ -64,7 +64,7 @@ Record_t* setNewName(FILE* fp, long key, const char* newname)
 }
 
 
-if()
+if(fseek(fp, -(long)sizeof(Record_t), SEEK_CUR) != 0)
 {
   return NULL;
 }
