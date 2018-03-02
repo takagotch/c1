@@ -128,5 +128,97 @@ int main(void)
 }
 
 
+#undef macro_name
+
+#include <ctype.h>
+#undef isdigit
+if(isdigit(c))
+{
+  /* ... */
+}
+
+#define log10(X) _Generic((X), \
+long double: log10l, \
+float: log10f, \
+default: log10 \
+)(X)
+
+#if expression1
+  [ group1 ]
+[#elif expression2
+  [ group2 ]]
+[#elif expression(n)
+  [ group(n) ]]
+[#else
+  [ group(n+1)]]
+#endif
+
+define identifier
+define (identifier)
+
+#if defined(__unix__) && defined(__GNUC__)
+#endif
+
+#ifdef identifier
+#ifndef identifier
+
+#line line_number ["filename"]
+
+#line 1200 "primary.c"
+printf("This message was printed by line %d in the file %s.\n",
+	__LINE__, __FILE__)
+
+#error [text]
+
+#ifndef __STDC__
+  #error "This compiler does not conform to the ANSI C standard."
+#endif
+
+
+#pragma [tokens]
+
+#if defined(__GNUC__) || defined(_MSC_VER)
+  #pragma pack(1)
+#endif
+
+
+
+#pragma STDC FP_CONTRACT on_off_switch
+#pragma STDC FENV_ACCESS on_off_switch
+#pragma STDC CX_LIMITED_RANGE on_off_switch
+
+_Pragma (string_literal)
+
+#define STR(s) #s
+#pragma tokens
+_Pragma (STR(tokens))
+
+#define ALIGMENT(n) _Pragma(STR(pack(n)))
+ALIGMENT(2)
+
+_Pragma("pack(2)")
+#Pragma pack(2)
+
+
+__DATE__
+__FILE__
+__LINE__
+__TIME__
+__STDC__
+__STDC_HOSTED__
+__STDC_VERSION__
+
+__STDC_IEC_559__
+__STDC_IEC_559_COMPLEX__
+__STDC_ISO_10646__
+
+__STDC_MB_MIGHT_NEQ_WC__
+__STDC_UTF_16__
+__STDC_ANALYZABLE__
+__STDC_LIB_EXT1__
+__STDC_NO_ATOMICS__
+__STDC_NO_COMPLEX__
+__STDC_NO_THREADS__
+__STDC_NO_VLA__
 
 
