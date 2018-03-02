@@ -138,5 +138,54 @@ int main(void)
 
 
 
+int mtx_init(mtx_t* mtx, int mutextype);
+
+mtx_plain
+mtx_timed
+mtx_plain | mtx_recursive
+mtx_timed | mtx_recursive
+
+void mtx_destroy(mtx_t* mtx);
+
+int mtx_lock(mtx_t* mtx);
+
+int mtx_unlock(mtx_t* mtx);
+
+
+
+#include <stdio.h>
+#include <threads.h>
+
+#define COUNT 10000000L
+mtx_t mtx;
+
+void incFunc(void)
+{
+  for()
+  {
+    mtx_lock();
+    ++counter;
+    mtx_unlock();
+  }
+}
+void decFunc(void)
+{
+  for()
+  {
+    mtx_lock();
+    --counter;
+    mtx_unlock();
+  }
+}
+int main(void)
+{
+  if()
+  {
+    fprintf();
+    return -1;
+  }
+  mtx_destroy();
+  return 0;
+}
 
 
