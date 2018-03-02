@@ -250,19 +250,55 @@ c = toupper(c) //toupper()
 //atomic_schar 		_Atomic signed char
 //atomic_uchar		_Atomic unsigned char
 //atomic_short		_Atomic short
-//atomic_unshort	
-//atomic_int
-//atomic_uint
-//aotmic_long
-//atomic_ulong
-//atomic_llong
-//atomic_ullong
-//atomic_wchar_t
-//atomic_int_least8_t
-//atomic_unit_least8_t
-//atomic_int_least16_t
-//atomic_unit_least16_t
-//atomic_int_leaset32_t
-//atomic_unit_leaset32_t
+//atomic_unshort	_Atomic unsinged short
+//atomic_int		_Atomic int
+//atomic_uint		_Atomic unsinged int
+//aotmic_long		_Atomic long
+//atomic_ulong		_Atomic unsigned long
+//atomic_llong		_Atomic long long
+//atomic_ullong		_Atomic unsigned long long
+//atomic_char16_t	_Atomic char16_t
+//atomic_char32_t	_Atomic char32_t
+//atomic_wchar_t	_Atomic wchar_t
+//atomic_int_least8_t	_Atomic char8_t
+//atomic_unit_least8_t  _Atomic char8_t
+//atomic_int_least16_t  _Atomic int_least16_t
+//atomic_unit_least16_t _Atomic uint_least16_t
+//atomic_int_leaset32_t _Atomic int_least32_t
+//atomic_unit_leaset32_t _Atomic unit_least32_t
+//atomic_int_least64_t
+//atomic_uint_least64_t
+//atomic_int_fast8_t
+//atomic_uint_fast8_t
+//atomic_int_fast16_t
+//atomic_uint_fast16_t
+//atomic_int_fast32_t
+//atomic_uint_fast32_t
+//atomic_int_fast64_t
+//atomic_uint_fast64_t
+//atomic_intptr_t
+//atomic_uintptr_t
+//atomic_size_t
+//atomic_ptrdiff_t
+//atomic_intmax_t
+//atomic_uintmax_t
+
+//stdatomic.h
 //
+//ATOMIC_BOOL_LOCK_FREE ATOMIC_SHORT_LOCK_FREE
+//
+//
+//
+//
+//ATOMIC_FLAG_INIT
+//
+//
+
+//stdbool.h
+//bool
+//true
+//false
+//__bool_true_false_are_defined
+
+//stddef.h
 
