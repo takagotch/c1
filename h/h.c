@@ -266,10 +266,10 @@ c = toupper(c) //toupper()
 //atomic_unit_least16_t _Atomic uint_least16_t
 //atomic_int_leaset32_t _Atomic int_least32_t
 //atomic_unit_leaset32_t _Atomic unit_least32_t
-//atomic_int_least64_t
-//atomic_uint_least64_t
-//atomic_int_fast8_t
-//atomic_uint_fast8_t
+//atomic_int_least64_t	_Atomic int_least64_t
+//atomic_uint_least64_t _Atomic uint_least64_t
+//atomic_int_fast8_t	_Atomc int_fast8_t
+//atomic_uint_fast8_t	_Atomic uint_fast8_t
 //atomic_int_fast16_t
 //atomic_uint_fast16_t
 //atomic_int_fast32_t
