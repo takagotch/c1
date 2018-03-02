@@ -83,32 +83,49 @@ printf("4 * atan(1.0) = %f", 4 * atan(1.0));
 
 4 * atan(1.0) = 3.141593
 
-#define showArgs() puts()
-showArgs();
+#define showArgs(...) puts(#__VA_ARGS__)
+showArgs(one\n, "2\n", three);
 
-puts();
+puts("one\n, "2\n", three");
 
-#define TEXT_A ""
-#define msg() puts()
+#define TEXT_A "Hello!"
+#define msg(x) puts(TEXT_ ## x)
+msg(A);
+
+puts("Hello!");
+puts(TEXT_A);
+
 msg();
-
-puts();
-puts();
-
-msg();
-puts();
+puts(TEXT_);
 
 
 -----
 
-#include <>
-#include <>
+#include <stdio.h>
+#include <math.h>
 
-#define PI 
-#define ATEP
-#define AMPLITUDE
-#define ATTENUATION
-#define DF()
+#define PI 3.141593
+#define ATEP (PI/8)
+#define AMPLITUDE 1.0
+#define ATTENUATION 0.1
+#define DF(x) exp(-ATTENUATION*(x))
+#define FUNC(x) (DF(x) * AMPLITUDE * cos(x))
+#define STR(s) #s
+#define XSTR(s) STR(s)
+
+int main(void)
+{
+  double x = 0.0;
+
+  printf("\nFUNC(x) = %s\n", XSTR(FUNC(x)));
+  printf("\n %10s %25\n", "x", STR(y = FUNC(x)));
+  printf("-------------------------------\n");
+  for(; x < 2.0 * PI + STEP / 2.0; x += STEP)
+  {
+    printf("%15f %20Lf\n", x, FUNC(x));
+  }
+  return 0;
+}
 
 
 
