@@ -76,12 +76,15 @@ fprintf(fp_log, "%s: intVar = %d\n", __func__, intVar);
 
 
 #define printfDBL(exp) printf(#exp " = %f", exp)
-printDBL();  //atan() math.h
+printDBL(4 * atan(1.0));  //atan() math.h
 
-printf();
-printf();
+printf("4 * atan(1.0)" " = %f", 4 * atan(1.0));
+printf("4 * atan(1.0) = %f", 4 * atan(1.0));
 
-4 * atan() = 3.141593
+4 * atan(1.0) = 3.141593
+
+#define showArgs() puts()
+showArgs();
 
 puts();
 
