@@ -223,10 +223,148 @@ vsprintf(), vsnprintf()
 
 
 
+qsort(), qsort_s()
+bsearch(), bsearch_s()
+
+//string.h		wchar.h
+memcpy(), memcpy_s()	wmemcpy(), wmwmcpy_s()
+mwmmove(), memmove_s()	wmemmove(), wmwmmove_s()
+memcmp()		wmemcmp()
+memchr()		wmemchr()
+mwmset(), memset_s()	wmemset(), wmemset_s()
+
+
+malloc()
+calloc()
+realloc()
+free()
+
+//time.h time()
+//struct tm gmtime()
+clock()
+time()
+difftime()
+gmtime(), gmtime_s()
+localtime(), localtime_s()
+mktime()
+ctime(), ctime_s(), asctime(), asctime_s(), strftime(), wcsftime()
+//strftime() printf() LC_TIME
+//wcsftime() strftime() time.h wchar.h
+
+//time()
+//time_t ctime(); gmtime(),localtime()
+//struct tm mktime(); asctime(), strtime(), wcsftime()
+
+//stdlib.h
+getenv(), getenv_s()
+system()
+atexit(), at_quick_exit()
+exit(), __Exit(), quick_exit()
+abort()
+
+//signal.h
+signal()
+raise()
+
+//locale.h
+setlocale()
+localeconv()
+//strcoll(), wcscoll()
+//strftime(), wcsftime()
+
+//setjmp.h
+longjmp()	setjmp()
+setjmp()	longjmp()
+
+//__STDC_NO_THREADS__
+//__STDC_NO_ATOMICS__
+
+//threads.h
+//call_once(), mutex
+call_once()
+
+thrd_ceate()
+thrd_current()
+thrd_equal()
+thrd_sleep()
+thrd_yield()
+thrd_exit()
+thrd_join()
+thrd_detach()
+
+//mutex
+mutex	mtx_init()
+mutex	mtx_lock()
+mutex	mtx_timedlock()
+mutex 	mtx_trylock()
+mutex	mtx_destroy()
+
+cnd_init()
+cnd_signal()
+cnd_broadcast()
+cnd_wait()
+cnd_timedwait()
+cnd_destroy()
+
+tss_create()
+tss_set()
+tss_get()
+tss_delete()
+
+//stdatomic.h
+//ATOMIC_VAR_INIT
+//_ATOMIC_type_LOCK_FREE
+//atomic_init()
+//atomic_is_lock_free()
+atomic_load(), atomic_load_explicit()
+atomic_store(), atomic_store_explicit()
+atomic_exchange(), atomic_exchange_explicit()
+atomic_compare_exchange_strong(),
+atomic_compare_exchange_strong_explicit(),
+atomic_compare_exchange_strong_weak(),
+atomic_compare_exchange_weak_explicit()
+atomic_fetch_add(), atomic_fetch_add_explicit(),
+atomic_fetch_sub(), atomic_fetch_sub_explicit(),
+atomic_fetch_or(), atomic_fetch_xor_explicit(),
+atomic_fetch_and(), atomic_fetch_and_explicit(0
+
+atomic_flag_clear(), atomic_flag_clear_explicit()
+atomic_falg_test_and_set(), atomic_flag_test_and_explicit()
+
+atomic_thread_fence()
+atomic_signal_fenct()
+
+
+//errno.h
+perror()	stdio.h //errno stderr
+strerror()	string.h //string.h
+strerror_s()	string.h //errno
+strerrorlen_s()	string.h //errno
+
+//assert()
+//assert.h
+//abort() free()
+#include <stdlib.h>
+#include <assert.h>
+char* buffers[64] = { NULL };
+int i;
+assert(i >= 0 && i < 64);
+assert(buffer[i] != NULL);
+free(buffer[i]);
+
+
+#define NDEBUG
+#include <assert.h>
+//_Static_assert
 
 
 
-
-
+if(remove("test1") != 0)
+{
+  perror("Couldn't delete 'test1'");
+}
+fprintf(stderr, "Couldn't delete 'test1': %s\n", sterror(errno));
+//strerror()
+//strerror_s()
 
 
