@@ -223,5 +223,46 @@ c = toupper(c) //toupper()
 //alignas _Alignas
 //slignof _Alignof
 //__alignas_is_defined, __alignof_is_defined
+
+
+//stdarg.h
+//va_list
+//
+//va_start()
+//va_arg()
+//va_copy()
+//va_end()
+
+
+//stdatomic.h
+//__STDC_NO_ATOMICS__
+//staomic_store() atomic_ memory_ ATOMIC_
+//
+//atomic_flag
+//memory_order
+//memory_order_relaxed meomry_order_release memory_oerder_acquire
+//memory_order_consume memory_order_acq_rel memory_order_seq_cst
+//
+//atomic_store_explicit() _explicit atomic_thread_fence()
+//
+//atomic_bool 		_Atomic_Bool
+//atomic_char 		_Atomic char
+//atomic_schar 		_Atomic signed char
+//atomic_uchar		_Atomic unsigned char
+//atomic_short		_Atomic short
+//atomic_unshort	
+//atomic_int
+//atomic_uint
+//aotmic_long
+//atomic_ulong
+//atomic_llong
+//atomic_ullong
+//atomic_wchar_t
+//atomic_int_least8_t
+//atomic_unit_least8_t
+//atomic_int_least16_t
+//atomic_unit_least16_t
+//atomic_int_leaset32_t
+//atomic_unit_leaset32_t
 //
 
