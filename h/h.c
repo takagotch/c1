@@ -270,29 +270,30 @@ c = toupper(c) //toupper()
 //atomic_uint_least64_t _Atomic uint_least64_t
 //atomic_int_fast8_t	_Atomc int_fast8_t
 //atomic_uint_fast8_t	_Atomic uint_fast8_t
-//atomic_int_fast16_t
-//atomic_uint_fast16_t
-//atomic_int_fast32_t
-//atomic_uint_fast32_t
-//atomic_int_fast64_t
-//atomic_uint_fast64_t
-//atomic_intptr_t
-//atomic_uintptr_t
-//atomic_size_t
-//atomic_ptrdiff_t
-//atomic_intmax_t
-//atomic_uintmax_t
+//atomic_int_fast16_t	_Atomic int_fast16_t
+//atomic_uint_fast16_t	_Atomic uint_fast16_t
+//atomic_int_fast32_t	_Atomic int_fast32_t
+//atomic_uint_fast32_t	_Atomic uint_fast32_t
+//atomic_int_fast64_t	_Atomic int_fast64_t
+//atomic_uint_fast64_t	_Atomic uint_fast64_t
+//atomic_intptr_t	_Atomic intptr_t
+//atomic_uintptr_t	_Atomic uintptr_t
+//atomic_size_t		_Atomic size_t
+//atomic_ptrdiff_t	_Atomic ptrdiff_t
+//atomic_intmax_t	_Atomic intmax_t
+//atomic_uintmax_t	_Atomic uintmax_t
 
 //stdatomic.h
 //
 //ATOMIC_BOOL_LOCK_FREE ATOMIC_SHORT_LOCK_FREE
-//
-//
-//
+//ATOMIC_CHAR_LOCK_FREE ATOMIC_INT_LOCK_FREE
+//ATOMIC_CHAR16_T_LOCK_FREE ATOMIC_LONG_LOCK_FREE
+//ATMOIC_CAHR32_T_LOCK_FREE ATOMIC_LLONG_LOCK_FREE
+//ATOMIC_WCAHR_T_LOCK_FREE ATOMIC_PINTER_LOCK_FREE
 //
 //ATOMIC_FLAG_INIT
-//
-//
+//ATOMIC_VAR(value)
+//kill_dependency(y)
 
 //stdbool.h
 //bool
@@ -301,4 +302,140 @@ c = toupper(c) //toupper()
 //__bool_true_false_are_defined
 
 //stddef.h
+//ptrdiff_t
+//size_t
+//wcahr_t
+//max_align_t
+//rsize_t
+//
+//NULL
+//offsetof(structure_type, member)
+
+
+//stdint.h
+//int64.h
+//
+//intN_t INTN_MIN INTN_MAX UINTN_MAX
+//int_leasetN_t INT_LEASETN_MIN INT_LEASTN_MAX UNIT_LEASTN_MAX
+//intfastN_t INT_FASTN_MIN INT_FASTN_MAX UINT_FASTN_MAX
+//intmax_t INTMAX_MIN INTMAX_MAX UINTMAX_MAX
+//intptr_t INTPTR_MIN INTPTR_MAX UNINTPTR_MAX
+//
+//ptrdiff_t PTRDIFF_MIN PTRDIFF
+//sig_atomic_t SIG_ATOMIC_MIN SIG_ATOMIC_MAX
+//size_t N/A SIZE_MAX
+//rsize_t N/A RSIZE_MAX<=SIZE_MAX
+//wchar_t WCHAR_MIN WCHAR_MAX
+//wint_t WINT_MIN WINT_MAX
+//
+//INTN_C(value), UINTN_C(value)
+//INTMAX_C(value), UINTMAX_C(value)
+
+
+//stdio.h
+//FILE
+//fpos_t
+//_IOFBF, _IOLBF, _IONBF
+//BUFSIZ
+//EOF
+//FILENAME_MAX
+//FOPEN_MAX
+//L_tmpnam
+//SEEK_SET, SEEK_CUR, SEEK_END
+//TMP_MAX
+//L_tmpnam_s, TMP_MAX_S
+//stdin, stdout, stderr
+
+
+//stdlib.h
+//div_t, ldiv_t, lldiv_t
+//constraint_handler_t
+//EXIT_FAILURE, EXIT_SUCCESS
+//MB_CUR_MAX
+//RAND_MAX
+
+
+//stdnoreturn.h
+//_Noreturn
+
+
+//string.h
+//memcpy() str,mem, wcs
+
+
+//tgmath.h
+//#include <tgmath.h>
+//float f = 0.5F;
+//double d = 1.5;
+//double _Compelx z1 = -1.0;
+//long double _Complex z2 = I;
+//
+//sqrt(f) sqrt(f)
+//sqrt(d) sqrt(d)
+//sqrt(z1) csqert(z1)
+//sqrt(z2) csqrt(z2)
+//
+//carg() cimag() conj() cproj() creal
+
+//threads.h
+//thrd_t
+//htrd_start_t
+//mtx_t
+//cnd_t
+//tss_t
+//tss_dtor_t
+//once_flag
+//
+//thrd_success
+//thrd_error
+//thrd_busy
+//thrd_nomem
+//thrd_timeout
+//
+//mtx_plain
+//mtx_timed
+//mtx_plain|mtx_recursive
+//mtx_timed|mtx_recursive
+//
+//thread_local
+//ONCE_FLAG_INIT
+//TSS_DTOR_ITERATIONS
+
+
+
+//time.h
+//clock_t
+//time_t
+//struct tm
+//
+//CLOCKS_PER_SEC
+
+
+
+//uchar.h
+//
+//char16_t
+//char32_t
+
+
+//wchar.h
+//
+//mbstate_t
+//wint_t
+//
+//WEOF
+
+
+
+//wctype.h
+//
+//wctrans_t
+//wctype_t
+//
+//WEOF
+
+
+
+
+
 
