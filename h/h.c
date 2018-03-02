@@ -205,5 +205,23 @@ c = toupper(c) //toupper()
 
 
 //setjmp.h
+//setjmp() jmp_buf longjmp() setjmp() longjmp() 
+
+
+//signal.h
+//sig_atomic_t
+//rasie() 
+//
+//STGABRT SIGLL SIGSEGV
+//STGPE SIGNT SIGTERM
+//
+//SEG_DEL, SIG_IGN
+//SIG_ERR
+
+
+//stdalign.h
+//alignas _Alignas
+//slignof _Alignof
+//__alignas_is_defined, __alignof_is_defined
 //
 
