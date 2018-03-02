@@ -61,17 +61,51 @@ putchar(str[i]);
 int var = SUB( ,10);
 
 
-putc();
-ptuc();
-int var = ();
+putc(':', stdout);
+ptuc(str[i], stdout);
+int var = (-10);
 
-#define DISTANCE()()
-d = DISTANCE();
+#define DISTANCE(x, y)((x)>=(y) ? (x)-(y) : (y)-(x))
+d = DISTANCE(a, b+0.5);
+
+d = ((a)>=(b+0.5) ? (a)-(b+0.5) : (b+0.5)-(a))
+
+#define printLog(...) fprintf(fp_log, __VA_ARGS__)
+printfLog("%s: intVar = %d\n", __func__m intVar);
+fprintf(fp_log, "%s: intVar = %d\n", __func__, intVar);
 
 
-#define printLog()
-printfLog();
-fprintf();
+#define printfDBL(exp) printf(#exp " = %f", exp)
+printDBL();  //atan() math.h
+
+printf();
+printf();
+
+4 * atan() = 3.141593
+
+puts();
+
+#define TEXT_A ""
+#define msg() puts()
+msg();
+
+puts();
+puts();
+
+msg();
+puts();
+
+
+-----
+
+#include <>
+#include <>
+
+#define PI 
+#define ATEP
+#define AMPLITUDE
+#define ATTENUATION
+#define DF()
 
 
 
