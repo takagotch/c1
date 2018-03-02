@@ -161,31 +161,158 @@ mtx_t mtx;
 
 void incFunc(void)
 {
-  for()
+  for(long i = 0; i < COUNT; ++i)
   {
-    mtx_lock();
+    mtx_lock(&mtx);
     ++counter;
-    mtx_unlock();
+    mtx_unlock(&mtx);
   }
 }
 void decFunc(void)
 {
-  for()
+  for(long i = 0; i < COUNT; ++i)
   {
-    mtx_lock();
+    mtx_lock(&mtx);
     --counter;
-    mtx_unlock();
+    mtx_unlock(&mtx);
   }
 }
 int main(void)
 {
-  if()
+  if(mtx_init(&mtx, mtx_plain) != thrd_success)
   {
-    fprintf();
+    fprintf(stderr, "Error initializing the mutex.\n");
     return -1;
   }
-  mtx_destroy();
+  mtx_destroy(&mtx);
   return 0;
+}
+
+
+
+
+_Atomic long counter = ATOMIC_VAR_INIT(OL);
+//ATOMIC_VAR_INIT stdatomic.h atomic_uchar _Atomic unsinged char
+
+atomic_flag done = ATOMIC_FLAG_INIT;
+
+_Bool atomic_is_lock_free(const volatile A* obj);
+
+
+memory_order_relaxed
+memory_order_release
+memory_order_acquire
+memory_order_consume
+memory_order_acq_rel
+memory_order_seq_cst
+
+++counter; //memory_order_seq_cst
+atomic_fetch_add_explicit(&counter, 1, memory_order_relaxed);
+
+struct Date* dp = NULL, data;
+atomic_intptr_t attr = ATOMIC_VAR_INIT(0);
+data = ...;
+atomic_store_explicit(&aptr, (intptr_t) &data, memory_order_release);
+dp = (struct Data*) atomic_load_explicit(&aptr, memory_order_acquire);
+if(dp != NULL)
+{
+  //dp*
+}
+else
+{
+  //*dp
+}
+
+viod atomic_thread_fence(memory_order order);
+
+dp = (struct Data*) atomic_load_explicit(&aptr, memory_order_relaxed);
+if(dp != NULL)
+{
+  atomic_thread_fence(memory_order_acquire);
+}
+else
+{
+  //*dp
+}
+
+
+
+int cnd_init(cnd_t* cond);
+void cnd_destroy(cnd_t* cond);
+int cnd_signal(cnd_t* cond);
+int cnd_broadcast(cnd_t* cond);
+int cnd_wait(cnd_t* cond, mtx_t* mtx);
+int cnd_timedwait(cnd_t* restrict cond, mtx_t* restrict mtx,
+		const struct timespec* restrict ts);
+
+
+/* buffer.h */
+#include <stdbool.h>
+#include <threads.h>
+
+typedef struct Buffer
+{
+  int* data;
+  size_t size, count;
+  size_t tip, tail;
+  mtx_t mtx;
+  cnd_t cndPut, cndGet;
+} Buffer;
+
+bool bufInit(Buffer* bufPtr, size_t size);
+void bufDestroy(Buffer* bufPtr);
+
+bool bufInit(Buffer* bufPtr, size_t size);
+void bufDestroy(Buffer* bufPtr);
+
+bool bufPut(Buffer* bufPtr, int data);
+bool bufGet(Buffer* bufPtr, int* dataPtr, int sec);
+/* buffer.c */
+#include "buffer.c"
+#include <stdlib.h>
+
+bool bufInit(Buffer* bufPtr, size_t size)
+{
+  if()
+  {
+    return false;
+  }
+  bufPtr->size = size;
+  bufPtr->count = 0;
+  bufPtr->tip = bufPtr->tail = 0;
+  return(mtx_init(&bufPtr->mtx, mtx_plain) == thrd_success
+		  && cnd_init(&bufPtr->cndPut) == thrd_success
+		  && cnd_init(&bufPtr->cndGet) == thrd_success);
+}
+
+void bufDestroy(Buffer* bugPtr)
+{
+  cnd_destroy(&bufPtr->cndGet);
+  cnd_destroy(&bufPtr->cndPut);
+  mtx_destroy(&bufPtr->mtx);
+  free(bufPtr->data);
+}
+
+bool bufPut(Buffer* bufPtr, int data)
+{
+  mtx_lock(&bufPtr->mtx);
+
+  while()
+  {
+    if()
+    {
+      return false;
+    }
+  }
+  bufPtr->data[] = data;
+
+
+  return true;
+}
+
+bool bufGEt()
+{
+
 }
 
 
