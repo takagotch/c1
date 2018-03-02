@@ -111,6 +111,115 @@ fegetenv()
 fesetenv()
 
 
+feholdexcept()
+feupdateenv()
+
+
+//math_errhandling
+//errno
+
+//sqrt() math.h
+//MATH_ERRNO 0
+//math_errhandling & MATH_ERRNO 0
+//errno EDOM amth_errhandling & MATH_ERREXCEPT
+//FE_INVALID
+
+//HUGE_VAL float long double HUGE_VALF HUGE_VALL
+//math_errhandling  MATH_ERRNO true
+//errno ERANGE
+//math_errhandling & MATH_ERREXCEPT true
+//FE_OVERFLOW FE_DIVBYZERO
+//DBL_MIN FLT_MIN LDBL_MI
+//math_errhandling & MATH_ERRNO true
+//errno ERANGE
+//math_errhandling & MATH_ERREXCEPT true
+//FE_UNDERFLOW
+
+
+//wctype.h
+//wchar_t
+//isdigit(), isxdigit() LC_CTYPE setlocale()
+//ctype.h		wctype.h
+isalpa()	iswalpha()
+islower()	iswlower()
+isupper()	iswupper()
+isdigit()	iswdigit()
+isalnum()	iswalnum()
+isprint()	iswprint()
+isgraph()	iswgraph()
+isspace()	iswspace()
+isblank()	iswblank()
+ispunct()	iswpunct()
+iscntrl()	iswcntrl()
+
+
+wctype()
+iswctype()
+//iswalph(wc)
+//iswctype(wc, wctype("alpha"))
+
+
+//ctype.h		wctype.h
+tolower()		towlower()
+toupper()		towupper
+
+
+wctrans()
+towctrans()
+//towupper(wc);
+//towctrans(wc, wctrans("toupper"));
+
+
+//string.h
+//wchar.h wcs
+//wchar_t, char16, char32_t
+//'\0'
+//string.h			wchar.h
+strlen(), strnlen_s()		wcslen(), wcsnlen_s()
+strcpu(), strncpu(), strcpy_s(), strncpy_s()
+				wcspy(), wcsncpy(), wcscpy_s(), wcsncpy_s()
+strcat(), strncat(), strcat_s(), strncat_s()
+				wcscat(), wcsncat(), wcscat_s(), wcsncat_s()
+strcmp(), strncmp(), strcoll()	wcscmp(), wcsncmp(), wcscoll()
+strxfrm()			wcsxfrm()
+strchr(), strrchr()		wcschr(), wcsrchr()
+strstr()			wcsstr()
+strcpn(), strpbrk()		wcscpn(), wcsbrk()
+strspn()			wcsspn()
+strtok(), strtok_s()		wcstok(), wcstok_s()
+
+//wchar_t, char16_t, char32_t
+//stdlib.h
+//MB_CUR_MAX
+//stdlib.h		wchar.h			uchar.h
+mblen()			mbrlen()
+mbrowc()		mbrtowc()		mbrtoc16(), mbrtoc32()
+wctomb(),wctomb_s()	wcrtomb(), wcrtomb_s()	c16rtomb(), c32rtomb()
+mbstowcs(), mbstowcs_s()mbsrtowcs(), mbsrtowcs_s()
+wcstombs(), wcstombs_s()wcsrtombs(), wcsrtombs_s()
+			btowc(), wctob()
+			mbsinit()
+
+
+//stdlib.h		wchar.h			inttypes.h
+atoi()			
+atol(), strtol()	wcstol()  //int
+strtoul()		wcstoul()  //long
+atoll(), strtoll()	wcstoll()  //unsigned long
+strtoull()		wcstoull()  //unsigned long long
+						strtoimax(), wcstoimax() //intmax_t
+						strtoumax(), wcstoumax() //unitmax_t
+strotf()		wcstof()
+atof(), strtod()	wcstod()
+strtold()		wcstold()
+
+
+
+//stdio.h 			wchar.h
+sscanf(), vsscanf()		swscanf(), vswscanf()
+sprintf(), snprintf()		swprintf(), vswprintf()
+vsprintf(), vsnprintf()
+//_s
 
 
 
