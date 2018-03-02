@@ -40,5 +40,16 @@ rand(), srand()
 
 
 //math.h			stdint.h
-sin(),
+sin(),cos(), tan(), asin(), acos(), atan()
+				csin(), ccos(), ctan(), csin(), cacos(), catan()
+sinh(), cosh(), tanh(), asinh(), acosh(), atanh()
+				csinh(), ccosh(), ctanh(), casinh(), cacosh(), catanh()
+exp()				cexp()
+log()				clog()
+pow(),sqrt()			cpow(), cqrt()
+fabs()				cabs()
+//complex.h
+atan2()
+exp2(), expm1(), frexp(), ldexp(), scalbn(), scalbIn()
+log10(),
 
