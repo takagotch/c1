@@ -205,16 +205,16 @@ static const void* search(BST_t* pBST, const Node_t* pNode, const void* pKey)
 }
 
 
-static Node_t* detachMin()
+static Node_t* detachMin(Node_t** ppNode)
 {
   Node_t* pNode = *ppNode;
-  if()
+  if(pNode == NULL)
   {
     return NULL;
   }
-  else if()
+  else if(pNode->left != NULL)
   {
-    return detachMin();
+    return detachMin(&(pNode->left));
   }
   else
   {
@@ -224,44 +224,44 @@ static Node_t* detachMin()
 }
 
 
-static _Bool erase();
-_Bool BST_erase()
+static _Bool erase(BST_t* pBST, Node_t** ppNode, const void* pKey);
+_Bool BST_erase(BST_t* pBST, const void* pKey)
 {
-  if()
+  if(pBST == NULL || pKey == NULL)
   {
     return false;
   }
-  return erase();
+  return erase(pBST, &(pBST->pRoot), pKey);
 }
-static _Bool erase()
+static _Bool erase(BST_t* pBST, Node_t** ppNode, const void* pKey)
 {
   Node_t* pNode = *ppNode;
-  if()
+  if(pNode == NULL)
   {
     return false;
   }
-  const int cmp_res = pBST->cmp();
-  if()
+  const int cmp_res = pBST->cmp(pKey, pBST->getKey(pNode->data));
+  if(cmp_res < 0)
   {
-    return erase();
+    return erase(pBST, &(pNode->left), pKey);
   }
-  else if()
+  else if(cmp_res > 0)
   {
-    return erase();
+    return erase(pBST, &(pNode->right), pKey);
   }
   else
   {
-    if()
+    if(pNode->left == NULL)
     {
       *ppNode = pNode->right;
     }
-    else if()
+    else if(pNode->right == NULL)
     {
       *ppNode = pNode->left;
     }
     else
     {
-      Node_t* pMin = detachMin();
+      Node_t* pMin = detachMin(&(pNode->right));
       *ppNode = pMin;
       pMin->left = pNode->left;
       pMin->right = pNode->right;
@@ -275,18 +275,18 @@ static _Bool erase()
 
 //BST_clear(), clear()
 static void clear(Node_t* pNode);
-void BST_clear()
+void BST_clear(BST_T* pBST)
 {
-  if()
+  if(pBST != NULL)
   {
-    clear();
+    clear(pBST->pRoot);
     pBST0>pRoot = NULL;
   }
 }
 
-static void clear()
+static void clear(Node_t* pNode)
 {
-  if()
+  if(pNode != NULL)
   {
     clear(pNode->left);
     clear(pNode->right);
