@@ -38,10 +38,11 @@ float* myFunc(size_t n)
 double* dPtr = calloc(1, sizeof(dobule));
 Record* rPtr;
 if((rPtr = calloc( 2, sizeof(Record)) == NULL)
-{}
+{/*EER*/}
 float* fPtr = calloc(n, sizeof(float));
 
 
+void
 
 
 
