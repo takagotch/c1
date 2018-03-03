@@ -239,43 +239,238 @@ printf("%s has %d points.\n", player, score);
 %[flags][field_with][.precision][length_modifier]specifier
 
 
-printf();
-printf();
-printf();
-printf();
+printf("1234567890123456\n");
+printf("%-10s %s\n", "Player", "Score");
+printf("%-10s %4d\n", "John", 120);
+printf("%-10s %4d\n", "Mary", 77);
 
 int month = 5, day = 1, year = 1987;
-printf();
+printf("Date of birth: %02d-%02d-%02d-%04d\n", month, day, year);
 
-char str[] "";
+char str[] "Variable field width";
 int width = 30;
-printf();
+printf("%-%s!\n", width, str);
 
 //c int 
 //s
 
-char* team[] = {};
-char spatator = '';
-for()
+char* team[] = { "Vivian", "Tim", "Frank", "Sally" };
+char spatator = ';';
+for(int i = 0; i < sizeof(team)/sizeof(team[0]); ++i)
 {
-  printf();
+  printf("%10s%c", team[i], separator);
 }
-putchar();
+putchar('\n');
 
 
-char msg[] = "";
-printf();
-printf();
-printf();
+char msg[] = "Every solution breeds new problems.";
+printf("%.14s\n", msg);
+printf("%20.14s\n", msg);
+printf("%.8s\n", msg+6);
+
+//d,i int
+//u unsigned int
+//o unsigned int
+//x unsigned int
+//X unsigned int
+
+printf("%d %u %X\n", -1, -1, -1, -1);
+
+long bignumber = 10000000L;
+unsigned long long hugenumber = 1000000000ULL * 1000000000000ULL
+printf("%ld %11X\n", bignumber, hugenumber);
+
+//i double
+//e,E double
+//g,G double
+//a,A double
+
+double x = 12.34;
+printf("%f %e %E\n", x, x, x);
+
+
+double value = 8.765;
+printf("Value: %.2f\n", value);
+printf("Interger value:\n",
+	" Rounded: %5.0f\n",
+	" Truncated: %5d\n", (int)Value);
+
+
+#include <math.h>
+long double xxl = expl(1000);
+printf("e to the power of 1000 is %.2Le\n", xxl);
+
+
+int scanf(const char* restrict format, ...);
+int fscanf(FILE* restrict fp, const char* restrict format, ...);
+int sscanf(const char* restirct src, const char* restrict format, ...);
+
+
+int age = 0;
+char name[64] = "";
+printf("Please enter your first naem and your age:\n");
+scanf("%s%d", name, &age);
+
+
+scanf("%s%d\n", name, &age);
+
+if(scanf("%s%d", name, &age) < 2)
+{
+  fprintf(stderr, "Bad input.\n");
+}
+else
+{
+  /* */
+}
+
+
+char city[32];
+printf(scanf("%31s", city) < 1)
+{
+  fprintf(stderr, "Error reading from standard input.\n");
+}
+else
+{
+  /* */
+}
+
+
+scanf("%*5c");
+
+char word[128];
+while(fscanf(fp, "%127s", word) == 1)
+{
+  /* */
+}
+
+
+char strNumber[32];
+scanf("%[0123456789]", strNumber);
+
+
+char ch, sentence[512];
+scanf("%511[^.!?]%c", sententce, &ch);
+
+
+scanf("%*[^\n]*c");
+
+
+unsigned int value = 0;
+if(scanf("%u", &value) < 1)
+{
+  fprintf(stderr, "Unable to read an integer.\n");
+}
+else
+{
+  //
+}
+
+unsigned long positoin = 0;
+if(fscanf(fp, "%lX", &position) < 1)
+{
+  //
+}
 
 
 
+float x = 0.0f;
+double xx = 0.0;
+if(scanf("%f %lf", &x, &xx) < 2)
+{
+  //
+}
 
 
 
+long ftell(FILE* fp);
+int fgepos(FILE* restrict fp, fpos_t* restrict ppos);
+
+#define ARRAY_LEN 1000
+long arrPos[ARRAY_LEN] = { OL };
+
+
+FILE* fp = fopen("messages.txt", "r");
+if(fp != NULL)
+{
+  int i = 0, c1 = '\n', c2;
+  while(i < ARRAY_LEN && (c2 = getc(fp)) != EOF)
+  {
+    if(c1 == '\n' && c2 == '#')
+    {
+      arrPos[i++] = ftell(fp) - 1;
+    }
+    c1 = c2;
+  }
+  //
+}
+
+
+int fsetpos(FILE* fp, const fpos_t* ppos);
+int fseek(FILE* fp, long offset, int origin);
+
+//SEEK_SET 0
+//SEEK_CUR 1
+//SEEK_END 2
+
+void rewind(FILE* fp);
+
+(void) fseek(fp, OL, SEEK_SET)
+
+//setNewName()
+#include <stdio.h>
+#include <string.h>
+#include "record.h" //Record_t, IndexEntry_t:
+	            //typedef struct { long key; char name[32]; } Record_t;
+		    //typedef struct { long key, pos; } IndexEntry_t;
+extern IndexEntry_t indexTab[];
+extern int indexLen;
+
+Record_t* setNewName(FILE* fp, long key, const char* newname)
+{
+  int i = 0;
+  for(i = 0; i < indexLen; ++i)
+  {
+   if(key == indexTab[i].key)
+   {
+     break;
+   }
+  }
+  if(i == indexLen)
+  {
+    return NULL;
+  }
+  if(fseek(fp, indexTab[i].pos, SEEK_SET) != 0)
+  {
+    return NULL;
+  }
+  if(key != record.key)
+  {
+    return NULL;
+  }
+  else
+  {
+    cons size_t size = sizeof(record.name);
+    strcpy(record.name, newname, size-1);
+    record.name[size-1] '\0';
+
+    if(fseek(fp, indexTab[i].pos, SEEK_SET) != 0)
+    {
+      return NULL;
+    }
+    if(fwrite(&record, sizeof(Record_t), 1, fp) != 1)
+    {
+      return NULL;
+    }
+    return &record;
+  }
+}
 
 
 
+if(fseek(fp, -(long)sizeof(Record_t), SEEK_CUR) != 0)
+{
+  return NULL;
+}
 
 
 
