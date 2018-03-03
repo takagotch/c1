@@ -297,22 +297,44 @@ bool bufPut(Buffer* bufPtr, int data)
 {
   mtx_lock(&bufPtr->mtx);
 
-  while()
+  while(bufPtr->count == bufPtr->size)
   {
-    if()
+    if(cnd_wait(&bufPtr->cndPut, &bufPtr->mtx) != thrd_success)
     {
       return false;
     }
   }
-  bufPtr->data[] = data;
+  bufPtr->data[bufPtr->tip] = data;
+  bufPtr->tip = (bufPtr->tip + 1) % bufPtr->size;
+  ++bufPtr->count;
 
+  mtx_unlock(&bufPtr->mtx);
+  cnd_signal(&bufPtr->cndGet);
 
   return true;
 }
 
-bool bufGEt()
+bool bufGet(bufPtr0>count == 0)
 {
+  if(cnd_timedwait(&bufPtr->cndGet,
+		&bufPtr->mtx, &ts) != thrd_success)
+  {
+    return false;
+  }
+
+*dataPtr = bufPtr->data[bufPtr->tail];
+bufPtr->tail = (bufPtr->tail + 1) % bufPtr->size;
+--bufPtr->count;
+
+mtx_unlock(&bufPtr->mtx);
+cnd_signal(&bufPtr->cndPtr);
+
+return true;
 
 }
+
+
+//producer_consumer.c
+
 
 
