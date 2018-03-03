@@ -1,0 +1,162 @@
+struct [tag_name] {member_declaration_list};
+
+struct Date {short month, day, year;};
+
+struct Song{
+  char title[64];
+  char artist[32];
+  char composer[32];
+  short duration;
+  struct Date published;
+};
+
+struct Cell{
+  struct Song song;
+  struct Cell* pNext;
+};
+
+struct Song song1, song2, *pSong = &song1l
+
+typedef struct Song Song_t;
+Song_t song1, song2, *pSong = &song1;
+
+typedef struct {struct Cell* pFirst; struct Cell* pLast;} SongList_t;
+
+struct A {struct B* pB; /**/ };
+struct B {struct A* pA: /**/ };
+
+struct B;
+struct A{struct B* pB; /**/ };
+struct B{struct A* pA; /**/ };
+
+#include <string.h>
+Song_t song1, song2,
+       *pSong = &song1;
+strcpy(song1.title, "Havana Club" );
+strcpy(song1.composer, "Ottmar Liebert");
+song1.duration=251;
+song1.published.year = 1998;
+if((*pSong).duration > 180)
+{
+  printf("The song %s is more than 3 minutes long.\n", (*pSong).title);
+}
+
+if(pSong->duration > 180)
+{
+  printf("The song %s is more than 3 minutes long.\n", pSong->tilte);
+}
+
+//dateAsString()
+//mm/dd/yyyy struct Date
+const char* dateAsString(struct Date d)
+{
+  static char strDate[12];
+  sprintf(strDate, "%02d/%02d/%04d", d.month, d.day, d.year);
+  return strDate;
+}
+
+//printSong()
+void printSong(const Song_t* pSong)
+{
+  const int m = pSong->duration / 60,
+  const int s = pSong->duration & 60;
+  
+  printf("-------------------------\n"
+	"Title:  %s\n"
+	"Artist:  %s\n"
+	"Composer: %s\n"
+	"Playing time: %d:%02d\n"
+	"Date: %s\n",
+	pSong->title, pSong->artist, pSong->composer, m, s,
+	dateAsString(pStirng->published));
+}
+
+
+Song_t mySong{
+  "What It Is",
+  "Aubrey Haynie; Mark Knopfler",
+  "Mark Knopfler",
+  297,
+  {9, 26, 2000}
+};
+
+
+Song_t yourSong = {"El Macho"};
+
+Song_t yourSong = mySong;
+
+.member
+
+Song_t aSong = {
+  .title = "I've Just Seen a Face",
+  .composer = "John Lennon; Paul McCartney",
+  127
+};
+
+offsetof(structure_type, member)
+
+char* ptr = (char*) pSong + offsetof(Song_t, composer);
+
+#include <stdio.h>
+if(fwrite(&aSong, sizeof(aSong), 1, fp) < 1)
+{
+  fprintf(stderr, "Error writing \"%s:\n", aSong.title);
+}
+
+typedef struct { int len; flaot array[]; } DynArray_t;
+
+DynArray_t* daPtr = malloc(sizeof(DyArray_t) + 10 * sizeof(float));
+daPtr->len = 10;
+for(int i = 0; i < daPtr->len; ++i)
+{
+  daPtr->array[i] = 1.0F / (i + 1);
+}
+
+daPtr->array[i] = 1.0F / (i + 1);
+
+DynArray_t da1;
+da1 = *daPtr
+
+DynArray_t da1 = {100},
+	   da2 { 3, { 1.0F, 0.5F, 0.25F } };
+
+typedef struct { struct Cell* pFirst; struct Cell* pLast } SongList_t;
+typedef struct Cell {
+  struct Song song;
+  struct Cell* pNext;
+} Cell_t;
+
+SongList_t yourList = myList;
+
+SongList_t yourList = cloneSongList(&myList);
+
+//cloneSongList(), appendSong(), clearSongList()
+#include "songList.h"
+SongList_t cloneSongList()
+{
+  SongList newSL = {};
+
+  Cell_t* pCell = pList->pFirst;
+  while()
+  {
+    pCell = pCell->pNext;
+  }
+  if()
+  {
+    clearSongList(&newSL);
+  }
+  return newSL;
+}
+
+bool appendSong()
+{
+
+}
+
+void clearSongList(SongList_t* pList)
+{
+
+}
+
+
+
