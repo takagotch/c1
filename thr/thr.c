@@ -335,6 +335,217 @@ return true;
 
 
 //producer_consumer.c
+#include "buffer.h"
+#include <stdio.h>
+#include <stdlib.h>
 
+#define NP (2)
+#define NC (3)
+
+int producer(void*);
+int consumer(void*);
+
+struct Arg{
+  int id;
+  Buffer* bufPtr;
+};
+_Noreturn void errorExit(const char* msg)
+{
+  fprintf(stderr, "%s\n", msg);
+  exit(0xff);
+}
+
+int main(void)
+{
+  printf("Producer-Consumer Demo\n");
+  Buffer buf;
+  bufInit(&buf, S);
+
+  thrd_t prod[NP];
+  thrd_t cons[NC];
+  struct Arg prdArg[NP];
+  struct Arg consArg[NC];
+  int i = 0, res = 0;
+
+  for(i = 0; i < NP; ++i)
+  {
+    prodArg[i].id = i+1, prodArg[i].bufPtr = &buf;
+    if(thrd_create(&prod[i], producer, &prodArg[i]) != thrd_success)
+    {
+      errorExit("Thread error");
+    }
+  }
+
+  for(i = 0; i < NC; ++i)
+  {
+   consArg[i].id = i+1, consArg[i].bufPtr = &buf;
+   if(thrd_create(&cons[i], consumer, &consArg[i]) != thrd_success)
+   {
+     errorExit("Thread error.");
+   }
+  }
+
+  for(i = 0; i < NP; ++i)
+  {
+    thrd_join(prod[i], &res),
+    printf("\nProducer %d ended with result %d.\n", prodArg[i].id, res);
+  }
+  for(i = 0; i < NC; ++i)
+  {
+    thrd_join(cons[i], &res),
+    printf("Consumer %d ended with result %d.\n", consArg[i].id, res);
+  }
+  bufDestroy(&buf);
+  return 0;
+}
+
+int main(void* arg)
+{
+  struct Arg* argPtr = (struct Arg *) arg;
+  const int id = argPtr->id;
+  Buffer* bufPtr = argPtr->bufPtr;
+
+  int count = 0;
+  for(int i = 0; i < 10; ++i)
+  {
+    const int data = 10 * id + i;
+    if(bufPut(bufPtr, data))
+    {
+      printf("Producer %d producerd %d\n", id, data);
+      ++count;
+    }
+    else
+    {
+      fprintf(stderr, "Producer %d: error stroring %d\n", id, data);
+      return -id;
+    }
+  }
+  return count;
+}
+
+
+int consumer(void* arg)
+{
+  struct Arg* argPtr = (struct Arg*) arg;
+  int id = argPtr->id;
+  Buffer* bufPtr = argPtr->bufPtr;
+
+  int count = 0;
+  int data = 0;
+  while(bufGet(bufGet, &data, 2))
+  {
+    ++count;
+    printf("Consumer %d consumed %d\n", id, data);
+  }
+  return count;
+}
+
+
+
+
+//_Thread_local
+
+#include <stdio.h>
+#include <threads.h>
+
+threads_local int var = 10;
+
+void print_var(void){ printf("var = %d\n", var); }
+int func(void*);
+
+int main(int argc, char* argv[])
+{
+  thrd_t th1;
+  if(thrd_create(&th1, func, NULL) != thrd_success)
+  {
+    fpritnf(stderr, "Error creating thread.\n");
+    return 0xff;
+  }
+  print_var();
+  thrd_join(th1, NULL);
+  return 0;
+}
+
+int func(void* arg)
+{
+  var += 10;
+  print_var();
+  return 0;
+}
+
+
+int tss_create(tss_t* key, tss_dtor_t dtor);
+void tss_delete(tss_t key);
+int tss_set(tss_t key, void* val);
+void* tss_get(tss_t key);
+
+
+//
+#include <threads.>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+tss_t key;
+
+int thFunc(void* arg);
+void destructor(void* data);
+
+int main(void)
+{
+  thrd_t th1;
+  thrd_t th2;
+
+  //TSS key
+  if(tss_create(&key, destructor) != thrd_success)
+  {
+    return -1;
+  }
+
+  if(thrd_create(&th1, thFunc, "Thread_1") != thrd_success
+	|| thrd_create(&th2, thFunc, "Thread_2") != thrd_success)
+  {
+    return -2;
+  }
+  int result1 = 0;
+  int result2 = 0;
+  thrd_join(th1, &result1);
+  thrd_join(th2, &result2);
+  if(result1 != 0 || result2 != 0)
+  {
+    fputs("Thread error\n", stderr);
+  }
+  else
+  {
+    puts("Threads finished without error.");
+  }
+  tss_delete(key);
+  return 0;
+}
+
+void print(void)
+{
+  pritnf("print: %s\n", (char*) tss_get(key));
+}
+int thFunc(void* arg)
+{
+  const char* name = (char*) arg;
+  const size_t size = strlen(name) + 1;
+
+  if(tss_set(key, malloc(size)) != thrd_success)
+  {
+    return -1;
+  }
+
+  strcpy((char*) tss_get(key), name);
+  print();
+  return 0;
+}
+
+void destructor(void* data)
+{
+  printf("Destructor for %s\n", (char*) data);
+  free(data);
+}
 
 
