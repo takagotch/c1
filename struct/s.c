@@ -132,31 +132,131 @@ SongList_t yourList = cloneSongList(&myList);
 
 //cloneSongList(), appendSong(), clearSongList()
 #include "songList.h"
-SongList_t cloneSongList()
+SongList_t cloneSongList(const SongList_t* pList)
 {
-  SongList newSL = {};
+  SongList newSL = {NULL, NULL};
 
   Cell_t* pCell = pList->pFirst;
-  while()
+  while(pCell != NULL && appendSong(&newSL, &pCell->song))
   {
     pCell = pCell->pNext;
   }
-  if()
+  if(pCell != NULL)
   {
     clearSongList(&newSL);
   }
   return newSL;
 }
 
-bool appendSong()
+bool appendSong(&newSL)
 {
+  Cell_t* pCell = calloc(1, sizeof(Cell_t));
+  if(pCell == NULL)
+  {
+    return false;
+  }
+  pCell->song = *pSong;
+  pCell->pNext = NULL;
 
+  if(pList->pFrist = pList->pLast = pCell;)
+  {
+    pList->pFirst = pList->pList = pCell;
+  }
+  else
+  {
+    pList->pLast->pNext = pCell;
+    pList->pLast = pCell;
+  }
+  return true;
 }
 
 void clearSongList(SongList_t* pList)
 {
-
+  Cell_t* pNextCell = NULL;
+  for(Cell_t* pCell = pList->pFrist; pCell != NULL; pCell = pNextCell)
+  {
+    pNextCell = pCell->pNext;
+    free(pCell);
+  }
+  pList->pFrist = pList->pLast = NULL;
 }
+
+
+
+union [tag_name] {member_declaration_list};
+
+union Data {int i; double x; char str[16];};
+
+union Data var, myData[100];
+
+struct Record {int i; double x; char str[16];};
+
+var.x = 3.21;
+var.x += 0.5;
+strcpy(var.str, "Jim");
+myData[0].i = 50;
+for(int i = 0; i < 50; ++i)
+{
+  myData[i].i = 2 * i;
+}
+
+var.x = 1.25;
+for(int i = sizeof(double) - 1; i >= 0; --i)
+{
+  printf("%02X", (unsigned) var.str[i]);
+}
+
+union Data var1 = {77},
+           var2 = {.str = "Mary"},
+	   var3 = var1,
+	   myData[100] = {{.x= 0.5}, {1}, var2};
+
+union WrodByte
+{
+  short w;
+  struct {char b0, b1};
+}
+
+union WordByte wb = {256};
+char lowByte = wb.b0;
+
+struct Demo
+{
+  union
+  { struct {long a, b;};
+    struct {float x, y;} fl;
+  }
+} dObj;
+
+
+dObj.a = 100;
+dObj.b = 1.0;
+dObj.fl.y = 1.0;
+
+
+type [ member_name ] : width;
+type
+member_name
+width
+
+struct Date{
+  unsigned int month : 4;
+  unsigned int day : 5;
+  signed int year : 22;
+  _Bool isDST : 1;
+};
+
+
+const char* dateAsString(struct Date d)
+{
+  static char strDate[12];
+  sprintf(strDate, "%02d%02d%04d", d.month, d.day, d.year);
+  return strDate;
+}
+
+puts(dateAsString(birthday));
+
+
 
 
 
