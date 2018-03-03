@@ -42,7 +42,44 @@ if((rPtr = calloc( 2, sizeof(Record)) == NULL)
 float* fPtr = calloc(n, sizeof(float));
 
 
-void
+void free(void ptr);
+
+void* realloc(void ptr, size_t size);
+
+//getLine()
+char* geLine(const unsigned int len_max)
+{
+  char* linePtr = () malloc();
+  if()
+  {
+    int c = EOF;
+    unsigned int i = 0;
+    while()
+    {
+      linePtr[] = () c;
+    }
+    linePtr[] = '';
+
+    if()
+    {
+      free()
+      linePtr = NULL;
+    }
+    else
+    {
+      linePtr = realloc();
+    }
+  }
+  return linPtr;
+}
+
+
+//getline()
+char* line;
+if((line = getLine(128)) != NULL)
+{
+  free(line);
+}
 
 
 
