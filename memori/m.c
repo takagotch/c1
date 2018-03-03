@@ -290,8 +290,72 @@ static void clear(Node_t* pNode)
   {
     clear(pNode->left);
     clear(pNode->right);
+    free(pNode);
   }
 }
 
 
+
+static int inorder(Node_t* pNode, _Bool (*action)(void* pData));
+
+int BST_inorder(BST_t*, _Bool (*action)(void* pData))
+{
+  if(pBST == NULL || action == NULL)
+  {
+    return 0;
+  }
+  else
+  {
+    return inorder(pBST->pRoot, action);
+  }
+}
+
+static int inorder(Node_t* pNode, _Bool (*action)(void* pData))
+{
+  if(pNode == NULL)
+  {
+    return 0;
+  }
+  int count = inorder(pNode->left, action);
+  if(action(pNode->data))
+  {
+    ++count;
+  }
+  count += inorder(pNode->right, action);
+  return count;
+}
+
+
+//sortlines < demo.txt
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "BSTree.h"
+
+#define LEN_MAX 1000
+char buffer[LEN_MAX];
+
+_Bool printStr(void* str) { return printf("%s", str) >= 0; };
+int main(void)
+{
+  BST_t* pStrTree = newBST((CmpFunc_t*)strcmp, NULL);
+  while(fgets(buffer, LEN_MAX, stdin) != NULL)
+  {
+    const size_t len = strlen(buffer);
+    if(! BST_insert(pStrTree, buffer, len+1))
+    {
+      break;
+    }
+  }
+  if(! feof(stdin))
+  {
+    fprintf(stderr, "sortlines: "
+	"Error reading or storing text input.\n");
+    exit(EXIT_FAILURE);
+  }
+  int n = BST_inorder(pStrTree, printStr);
+  fprintf(stderr, "\nsortlines: Printed %d lines.\n", n);
+  BST_clear(pStrTree);
+  return 0;
+}
 
