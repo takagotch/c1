@@ -273,3 +273,52 @@ static int str_compare(const void* p1, const void* p2)
   return strcmp(*(char**) p1, *(char**) p2);
 }
 
+
+
+
+double (*funcPtr)(double, double);
+
+double result;
+funcPtr = pow;
+result = (*funcPtr)(1.5, 2.0);
+result = funcPtr(1.5, 2.0);
+
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+static double Add() {return x + y;}
+static double Sub() {}
+static double Mul() {}
+static double Div() {}
+
+typedef double func_t();
+#define FUNC_NUM()
+func_t* const funcTable[] = {};
+const char* msgTable[] = {};
+int main()
+{
+  printf();
+  double x = 0.0;
+  double y = 0.0;
+  if()
+  {
+    printf();
+  }
+  for()
+  {
+    printf();
+  }
+  return 0;
+}
+
+
+
+typedef double func_t(double, double);
+func_t* funcTable[5] = {Add, Sub, Mul, Div, pow};
+
+
+
+
