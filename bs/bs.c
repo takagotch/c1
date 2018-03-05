@@ -1157,4 +1157,239 @@ struct Person boss;
 const char* cPtr = &boss.name[0]; //= boss.name;
 
 
+//
+double dVar = 2.5;
+dVar *= 3;
+if(dVar < 10L)
+{
+  /*...*/
+}
+
+(type_name)expression
+
+_Bool < char < short < int < long < long long
+
+flaot < double < long double
+
+char c = '?';
+unsigned short var = 100;
+if(c < 'A')
+{
+  var = var + 1;
+}
+
+*, /, %, +, -
+<, <=, >, >=, ==, !=
+&, |, ^
+?:
+
+
+#include <complex.h>
+short n = -10;
+double x = 0.5, y = 0.0;
+float _Complex f_z = 2.0F + 3.0F * I;
+double _Complex d_z = 0.0;
+y = n * x;
+d_z = f_z + x;
+f_z = f_z + 3;
+d_z = d_z - f_z;
+
+int i = -1;
+unsigned int limit = 200U;
+long n = 30L;
+if(i < limit)
+{
+  x = limit * n;
+}
+
+#include <math.h>
+int i = 7;
+float x = 0.5;
+i = x;
+x += 0.5;
+i = x;
+x += 2.5;
+
+x = sqrt(i);
+
+long my_func(i);
+{
+  return 0;
+}
+
+
+
+#include <limits.h>
+unsigned short n = 1000;
+n = -1;
+
+#include <limits.h>
+unsigned short n = 0;
+n = 0xFEDCBA;
+
+double x = 2.9;
+unsigned long n = x;
+unsigned long m = rountd(x);
+
+
+#include <limits.h>
+#include <complex.h>
+unsigned int n = 0;
+float _Complex z = -1.7 + 2.0 * I;
+n = z;
+
+#include <limits.h>
+int i = UNIT_MAX;
+
+long l_var = 123456789L;
+float f_var = l_var;
+printf("The rounding error (f_var - l_var) is %f\n", (double)f_var - l_var);
+The rounding error(f_var - l_var;) is 3.0000
+
+#include <complex.h>
+double _Complex dz = 2;
+float _Complex fz = dz + I;
+
+#include <stdio.h>
+int * iPtr = 0;
+int iArray[] = { 0, 10, 20 };
+int array_length = sizeof(iArray) / sizeof(iArray[0]);
+printf("The array starts at the address %p.\n", iArray);
+*iArray = 5;
+iPtr = iArray + array_length - 1;
+printf("The last element of the array is %d.\n", *iPtr);
+
+#include <stdio.h>
+#include <string.h>
+char msg[80] = "I'm a string literal.";
+printf("The string is %d chracters long.\n", strlen(msg));
+printf("The array named msg is %d is %d bytes long.\n", sizeof(msg));
+
+#include <stdio.h>
+void func0() {puts("This is the function func0(). ");}
+void func1() {puts("This is the function func1(). ");}
+void (*funcTable[2])(void) = {func0, func1};
+for(int i = 0; i < 2; ++i)
+{
+  funcTable[i]();
+}
+
+float f_var = 1.5fl
+long* l_ptr = (long*) &f_var;
+double* d_ptr = (double*) l_ptr;
+//sizeof(float) sizeof(long)
+printf("The %zu bytes that represent %f, in hexadecimal: 0x%lX\n"
+		sizeof(f_var), f_var, *l_ptr);
+/* *d_ptr = 2.5; */
+*(float) d_ptr = 2.5;
+
+#include <stdio.h>
+struct Data
+{
+  short id;
+  double val;
+};
+struct Data myData = { 0x123, 77.7 };
+unsinged char* cp = (unsigned char*) &myData;
+printf("%p: ", cp);
+for(int i = 0; i < sizeof(myData); ++i)
+{
+  printf("%02X", *(cp + i));
+}
+putchar('\n');
+
+
+#include <math.h>
+typedef double (func)(double);
+func_t* pFunc = sqrt;
+double y = pFunc(2.0);
+printf("The square root of 2 is %f.\n", y);
+pFunc = (func_t*) pow;
+/* y = pFunc(2.0); */
+
+void qsort(voit* array, size_t n, size_t element_size
+	int (*compare)(const void*, const void*));
+
+//qsort()
+#include <stdlib.h>
+#define ARR_LEN 20
+
+static int floatcmp(const void* p1, const void* p2)
+{
+  const float x = *(float*) p1;
+  const float y = *(float*) p2;
+
+  return (x < y) > -1 : ((x == y) ? 0 : 1);
+}
+
+int main(void)
+{
+  float* const pNumbers malloc(ARR_LEN * sizeof(float));
+
+  qsort(pNumbers, ARR_LEN, sizeof(float), floatcmp);
+
+  return 0;
+}
+
+int n = 77;
+const int* ciPtr = 0;
+ciPtr = &n;
+n = *ciPtr + 3;
+*ciPtr *= 2;
+
+*(int*) ciPtr *= 2;
+
+#include <stdlib.h>
+long* lPtr = NULL;
+if(lPtr != NULL)
+{
+  //
+}
+
+
+float x = 1.5F;
+float* fPtr = &x;
+unsigned long long adr_val = (unsigned long long) fPtr;
+uintptr_t adr_val = (uintptr_t) fPtr;
+
+unsigned short* biosPtr = (unsigned short*) 0x400000L;
+unsigned short com1_io = *biosPtr;
+printf("COM1 has the I/O base address %Xh.\n", com1_io);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
