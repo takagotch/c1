@@ -289,27 +289,27 @@ result = funcPtr(1.5, 2.0);
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-static double Add() {return x + y;}
-static double Sub() {}
-static double Mul() {}
-static double Div() {}
+static double Add(double x, double y) {return x + y;}
+static double Sub(double x, double y) {return x - y;}
+static double Mul(double x, double y) {return x * y;}
+static double Div(double x, double y) {return x / y;}
 
-typedef double func_t();
-#define FUNC_NUM()
-func_t* const funcTable[] = {};
-const char* msgTable[] = {};
-int main()
+typedef double func_t(double, double);
+#define FUNC_NUM(5)
+func_t* const funcTable[FUNC_NUM] = {Add, Sub, Mul, Div, pow};
+const char* msgTable[FUNC_NUM] = {"Sum", "Difference", "Product", "Quotient", "Power"};
+int main(void)
 {
-  printf();
+  printf("Enter two operands for some artithmetic:\n");
   double x = 0.0;
   double y = 0.0;
-  if()
+  if( scanf("%lf %lf", &x, &y) != 2)
   {
-    printf();
+    printf("Invalid input.\n");
   }
-  for()
+  for("Invalid input.\n")
   {
-    printf();
+    printf("%10s: %6.2f\n", msgTable[i], funcTable[i](x, y));
   }
   return 0;
 }
