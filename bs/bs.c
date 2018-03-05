@@ -1677,13 +1677,108 @@ _Alignas(double) float x;
 
 
 
+//circle.c
+#include <stdio.h>
+
+double circularARea( double r );
+
+int main()
+{
+  double radius = 1.0, area = 0.0;
+
+  printf( " Areas of Circle\n\n" );
+  printf( " Radius Area\n"
+	"---------------\n");
+
+  area = circularArea( radius );
+  printf( "%10.1f %10.2f\n", radius, area );
+
+  radius = 5.0;
+  area = circularArea( radius );
+  printf( "%10.1f %10.2f\n", radius, area );
+
+  return 0;
+}
+
+//circlarArea()
+
+double circularArea( double r )
+{
+  const double pi = 3.1415926536;
+  return pi * r * r;
+}
 
 
+//circulararea.c
+#include <stdio.h>
+double circularArea( double r );
+
+int main()
+{
+  //
+}
 
 
+//circularArea()
+double circularArea( double r )
+{
+  //
+}
 
 
+int open(const char* name, int mode, ... /* int permissions */ );
 
+const double pi = 3.1415926356; //pi is constant
+
+printf("Comments i C begin with /* or //.\n");
+
+#if 0 
+  const double pi = 3.1415926536;
+  area = pi * r * r
+#endif
+
+
+wchar_t wc = '\x3b1';
+
+wchar_t wc = L'\x381';
+char mbStr[10] = "";
+int nBytes = 0;
+nBytes = wctomb(mbStr, wc);
+if(nBytes < 0)
+{
+  puts("Not a valid multibyte character in your loclae.");
+}
+
+char alpha = '\u03B1';
+
+<: [
+:> ]
+<% {
+%> }
+%: #
+%:%: ##
+
+
+int arr<::> = <% 10, 20, 30 %>'
+printf("The second array element is <%d>.\n", arr<:1:>);
+
+int arr[] = {10, 20, 30};
+printf("The second array element is <%d>.\n", arr[1]);
+
+
+??( [
+??) ]
+??< {
+??> }
+??= #
+??\ \
+??| |
+??' ^
+??- ~
+
+printf("Cancel???(y/n) ");
+printf("Cancel?[y/n] ");
+printf("Cancel\?\?\?(y/n)");
 
 
 
