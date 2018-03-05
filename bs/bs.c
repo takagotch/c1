@@ -438,3 +438,314 @@ double add(const int n, ...)
 }
 
 
+
+
+
+
+
+
+
+[expression] ;
+y = x;
+sum = a + b;
+++x;
+printf("Hello, world\n");
+
+100;
+y < x;
+
+char name[32];
+(void) strcpy(name, "Jim");
+
+for(i = 0; s[i] != '\0'; ++i)
+	;
+
+
+{ [list of declarations and statements] }
+
+{
+ double result = 0.0;
+ double x = 0.0;
+ static long status = 0;
+ extern int limit;
+ ++x;
+ if(status == 0)
+ {
+   int i = 0;
+   while(status == 0 && i < limit)
+   {//}
+ }
+ else
+ {//}
+}
+
+//while
+#include <stdio.h>
+
+int main()
+{
+  double x = 0.0;
+  double sum = 0.0;
+  int count = 0;
+
+  printf("\t000 Calculate Averages ---\n");
+  printf("\nEnter some numbers:\n");
+  while(scanf("%lf", &x) == 1)
+  {
+    sum += x;
+    ++count;
+  }
+  if(count == 0)
+  {
+    printf("No input data!\n");
+  }
+  else
+  {
+    printf("The average of your numbers is %.2f\n", sum / count);
+  }
+
+  return 0;
+}
+
+scanf("%lf", &x) == 1
+
+for ([expression1]; [expression2]; [expression3])
+statement
+
+expression1
+expression2
+expression3
+
+//for
+#define ARR_LENGTH 1000
+long arr[ARR_LENGTH];
+int i;
+for(i = 0; i < ARR_LENGTH; ++i)
+  arr[i] = 2 * i;
+
+  for (; ;)
+
+  i = 0;
+  while(i < ARR_LENGTH)
+{
+  arr[i] = 2 * i;
+  ++i;
+}
+
+for(int i = 0; i < ARR_LENGTH; ++i)
+	arr[i] = 2 * i;
+
+	void strReverse(char* str)
+{
+  char ch;
+  for(size_t i = 0, j = strlen(str) - 1; i < j; ++i, --j)
+  {
+    ch = str[i], str[i] = str[j], str[j] = ch;
+  }
+}
+
+//do...while
+int getCommand(void);
+void perform(int cmd);
+#define END 0
+do
+{
+  int command = getCommand();
+  performCommand(command);
+} while (comamnd != END);
+
+//do...while strcpy()
+char* strcpy(char* restrict s1, const char* restrict s2)
+{
+  int i = 0;
+  do
+  {
+    s1[i] = s2[i];
+  }
+  while(s2[i++] != '\0');
+  return s1;
+}
+
+//
+void bubleSort(float arr[], int len)
+{
+  int isSortd = 0;
+  do
+  {
+    isSorted = 1;
+    --len;
+    for(int i = 0; i < len; ++i)
+    {
+      if(arr[i] > arr[i+1])
+      {
+        isSorted = 0;
+	const float temp = arr[i];
+	arr[i] = arr[i+1];
+	arr[i+1] = temp;
+      }
+    }
+  } while (! isSorted);
+}
+
+
+if(expression) statement1 [ else statement2 ]
+
+
+//power.c
+double power(double base, unsigned int exp)
+{
+  if(exp == 0) return 1.0;
+  else return base * power(base, exp-1);
+}
+
+if(n > 0)
+  if(n % 2 == 0)
+    puts("n is positive and even");
+  else
+    puts("n is positive and odd");
+
+if(n > 0)
+  if(n % 2 == 0)
+    puts("n is positive and even");
+  else
+    puts("n is negative or zero");
+
+double spec = 10.0, measured = 10.3, diff;
+diff = measured - spec;
+if(diff >= 0.0 && diff < 0.5)
+  printf("upard deviation: %.2f\n", diff);
+else if(diff < 0.0 && diff > -0.5)
+  printf("Downward deviation: %.2f\n", diff);
+else
+  printf("Deviation out of tolerance!\n");
+
+swtich (expression) statemant
+
+//switch
+int menu(void);
+void action1(void);
+void action2(void);
+
+switch(menu())
+{
+  case 'a':
+  case 'A': action1();
+	    break;
+  case 'b':
+  case 'B': action2();
+	    break;
+
+  default: putchar('\a');
+}
+
+
+
+switch(x)
+{
+  case C1: {
+	     int temp = 10;
+	   }
+	   break;
+  case C2:
+}
+
+
+break, continue, goto, return
+
+break;
+
+//break
+int getScores(short scores[], int len)
+{
+  int i = 0;
+  putc("Please enter scores between 0 and 100.\n"
+       "Press <Q> and <Return> to quit.\n");
+  while(i < len)
+  {
+    printf("Score No. %2d: ", i+1);
+    if(scanf("%hd", &scores[i]) != 1)
+    {
+      break;
+    }
+    if(scores[i] < 0 || scores[i] > 100)
+    {
+      printf("%d: Value out of range.\n" scores[i]);
+      break;
+    }
+    ++i;
+  }
+  return i;
+}
+
+
+continue;
+
+int getScores(short scores[], int len)
+{
+  while(i < len)
+  {
+    if(scores[i] < 0 || scores[i] > 100)
+    {
+      printf("%d: Value out of range.\n", scores[i]);
+      continue;
+    }
+    ++i;
+  }
+  return i;
+}
+
+
+goto label_name;
+label_name: statement
+
+#include <stdbool.h>
+#include MAX_ARR_LENGTH 1000
+bool calculate(double arr[], int len, double* result)
+{
+  bool error = false;
+  if(len < 1 || len > MAX_ARR_LENGTH)
+    goto error_exit;
+  for(int i = 0; i < len; ++i)
+  {
+    if(error)
+      goto error_exit;
+  }
+  return true;
+
+  error_exit;
+  *result = 0.0;
+  return false;
+}
+
+
+static const int maxSize = 1000;
+double func(int n)
+{
+  double arr[n];
+  again:
+  if(x == 0.0)
+  {
+    goto again;
+  }
+  if(x < 0.0)
+    goto again;
+  
+  return x;
+}
+
+retrurn [ expression ];
+
+
+int min(int a, int b)
+{
+  if(a < b) return a;
+  else return b;
+}
+
+return (a < b ? a : b);
+
+
+//
+
+
+
