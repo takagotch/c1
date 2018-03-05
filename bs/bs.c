@@ -746,6 +746,415 @@ return (a < b ? a : b);
 
 
 //
+'\n' int
+a + 1 int
+a + 1.0 double
+a < 77.7 int
+"A string literal." char*
+abort() void
+sqrt(2.0) double
+z / sqrt(2.0) double_Complex
+
+2.0 * sin(3.14159 * fAngleDegree/180.0)
+
+_Generic(expression, generic association 1
+		[, generic association 2, ...])
+
+type name : expression
+default : expression
+
+_Generic(1.0, int: "int", double: "double", default: "neither int not double")
+#define typeOf(x) _Generic((x), int: "int", double: "double", \
+		default: "neither int nor double")
+
+array[1]
+&array[1]
+ptr 
+*ptr
+ptr+1
+*ptr+1
+
+int a = 1;
+const int b = 2;
+const int* ptr = &a;
+b = 20;
+*ptr = 10;
+
+int i = 1;
+i = i++;
+
+int i = 0, array[] = {0, 10, 20};
+array[i] = array[++i];
+array[i] = array[i + 1]; ++i;
+
+&&
+||
+?:
+,
+
+a / b % c (a / b) % c
+a = b = c a = (b = c)
+
+[] () . -> ++ -- (type name){list}
+++ -- ! ~ + - * & sizeof _Aligonof
+* / %
++ -
+<< >>
+< <= > >
+== !=
+&
+^
+|
+&&
+||
+?:
+= += == *= /= %= &= ^= |= <<= >>=
+:,
+
+* x * y
+/
+%
++
+-
++
+-
+
+-n int
+n * -2L long
+8 / n int
+8 % n int
+8.0 / n double
+8.0 % n 
+
+dobule dArr[5] = {0.0, 1.1, 2.2, 3.3, 4.4},
+double* dPtr = dArr;
+dPtr = dPtr + 1;
+dPtr = 2 + dPtr;
+
+printf("%.1f\n", *dPtr);
+printf("%.2f\n", *(dPtr -1));
+
+int i = dPtr - dArr;
+
+
+dPtr += 1;
+++dPtr;
+dPtr++;
+
+= 
++= -= *= %= &= ^= |= <<= >>=
+
+#include <stdio.h>
+char c = 0;
+while ((c = getchar()) != EOF)
+{/**/}
+
+
+double x = 0.5, y1, y2;
+y1 = y2 = 10.0 * x;
+
+*= /= %= += -=
+<<= >>= &= ^= |=
+
+long var = 1234L;
+var *= 3;
+var <<= 2;
+
+x[++i] *= 2;
+x[++i] = x[++i] * (2);
+
+
+double var1 = 2.5, var2 = 0.5;
+var1 /= var2 + 1;
+
+short* sPtr;
+sPtr += 2;
+
+x++
+++x
+x--
+--x
+
+
+char a[10] = "Jim";
+int i = 0;
+printf("%c\n", a[i++]);
+printf("%c\n", a[++i]);
+
+i = -;
+printf("%c\n", a[i]++);
+printf("%c\n", ++a[i]);
+
+char a2[10];
+char* p1 = a;
+char* p2 = a2;
+while((*p2++ = *p1++) != '\0')
+{
+  ;
+}
+
+
+<
+<=
+>
+>=
+==
+!=
+
+
+
+static double average(const float* array, const int length)
+{
+  if(length <= 0)
+  {
+    return 0.0;
+  }
+  double sum = 0.0;
+  const float* = array + length;
+  for(const float* p = array; p < end; ++p)
+  {
+    sum += *p;
+  }
+
+  return sum /length;
+}
+
+
+a < b && b < c + 1
+(a < b) && (b < (c + 1))
+
+
+&& 
+||
+!
+
+(deviation < -0.2) || (deviation > 0.2)
+deviation < -0.2 || deviation > 0.2
+!(deviation >= -0.2 && deviation <= 0.2)
+
+(deviation < -0.2 || deviation > 0.2) && status == 1
+deviation < -0.2 || (deviation > 0.2 && status == 1)
+
+
+dobule x;
+_Bool get_x(double* x), check_x(double);
+while(get_x(&x) && check_x(x))
+{/**/}
+
+&
+|
+^
+~
+
+
+int a = 6;
+int b = 11;
+a & b
+a | b
+a ^ b
+~a
+
+a &= 0xFF;
+a &= ~0x20;
+
+int mask = 0xC;
+a |= mask;
+a ^= mask;
+
+a ^= b;
+b ^= a;
+a ^= b;
+
+<<
+>>
+
+
+unsigned long n = 0xB;
+unsigned long result = 0;
+result = n << 2;
+result = n >> 2;
+
+//setBit()
+//limits.h CHAR_BIT
+static unsigned int setBit(const unsigned int maks, const unsigned int p)
+{
+  if(p >= CHAR_BIT * sizeof(int))
+  {
+    return mask;
+  }
+  else
+  {
+    return mask | (1U << p);
+  }
+}
+
+&
+*
+[]
+.
+->
+&x
+*p
+x[y]
+x.y
+p->y
+
+
+float x;
+float* ptr;
+ptr = &x;
+ptr = &(x+1);
+
+float x;
+float* ptr = &x;
+*ptr = 1.7;
+++(*ptr);
+
+
+#include <stlib.h>
+#define ARRAY_SIZE 100
+double* pArray = malloc(ARRAY_SIZE * sizeof(double));
+if(pArray != NULL)
+{
+  for(int i = 0; i < ARRAY_SIZE; ++i)
+  {
+    pArray[i] = (double) rand() / RAND_MAX;
+  }
+}
+
+
+
+
+struct Article{
+  long number;
+  char name[32];
+  long price;
+};
+struct Article sw = {102030L, "Heroes", 599SL};
+sw.price = 499SL;
+
+
+struct Articel getArticle();
+printf("naem: %s\n", getArticle().name);
+
+struct Article* pArticle = &sw,
+const struct Article* pcArticle = &sw;
+++(pArticle->number)
+if(pcARticle->number == 102031L)
+{
+  pcArticle->price += 50;
+}
+
+
+struct Article arrArticle[10];
+arrArticle[2].price = 990L;
+arrArticel->number = 10100L;
+
+
+
+arrArticle[i].nubmer
+(arrArticel+i)->number
+(*(arrArticle+i)).number
+
+
+() log(x)
+(type name){list} (ubt [5]){ 1, 2 }
+sizeof sizeof x
+_Alignof _Alignof(int)
+(type name) (short) x
+?: x ? y : z
+,  x , y
+
+#include <math.h>
+double x = 0.7;
+double y = 0.0;
+y = pow(x + 1, 3.0);
+
+pow(x, 3);
+pow(x);
+
+int i = 0;
+printf("%d %d\n", i, ++i);
+
+fn_table[i++]().price
+
+
+(type name){ list of initializers }
+
+float* fPtr = (flaot []){ -0.5, 0.0, +0.5 };
+
+
+#include "database.h"  //struct Pair {long key; char value[32];};
+insertPair(&db, &(struct Pair)){1000L, "New York JFK Airport"}
+
+(const char []){"A constant string."}
+"A constant string."
+
+sizeof(int), sizeof &i, sizeof(&i), sizeof* iPtr, sizeof(*iPtr)
+
+struct gap { char version; short value; };
+
+#include <string.h>
+struct gap g;
+memset(&g, 0, sizeof g);
+
+void func(float a[], int n)
+{
+  float b[2*n];
+  int m = sizeof(b) / sizeof(*b);
+}
+
+
+_Alignof(char*) 
+
+condition ? expression1 : expression2
+
+inline int iMax(int a, int b){ return a >= b ? a : b; }
+
+inline int iMax(int a, int b)
+{ if(a >= b) return a; else return b; }
+
+distance = x < y ? y - x : x - y;
+
+
+flag ? cintPtr : vintPtr volatile const int*
+flag ? cintPtr : NULL    const int*
+flag ? cintPtr : voidPtr const void*
+
+
+expression1, expresssion2
+
+x = 2.7, sqrt(2*x)
+
+y = (x = 2.7, sqrt(2*x));
+
+
+y = sqrt((x=2.7, 2*x));
+
+int i; flaot fArray[10], val;
+for(i=0; val=0.25; i < 10; ++i, val *= 2.0)
+{
+  fArray[i] = val;
+}
+
+
+
+#define BLOCK_SIZE 512
+char buffer[4*BLOCK_SIZE];
+
+
+
+#define ARRAY_SIZE 200
+static float fArray[ARRAY_SIZE];
+static float* fPtr = fArray + ARRAY_SIZE - 1;
+
+
+struct Perosn{
+  char pin[32];
+  char name[64];
+};
+struct Person boss;
+const char* cPtr = &boss.name[0]; //= boss.name;
 
 
 
