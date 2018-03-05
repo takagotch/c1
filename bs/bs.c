@@ -1357,17 +1357,136 @@ unsigned short com1_io = *biosPtr;
 printf("COM1 has the I/O base address %Xh.\n", com1_io);
 
 
+int, long, long long
+
+int, unsigned int, long, unsigned long, long long, unsigned long long
+
+0x200 int
+512U unsigned int
+0L long 
+0Xf0fUL unsigned long
+0777LL long long
+0xAAAllu unsigned long long
+
+10.0 10
+2.34E5 2.34 X 10 5
+67e-12 
 
 
+float f_var = 123.456F;
+long double ld_var = f_var * 987EL;
+
+#include <stdio.h>
+int c = 0;
+c = getchar();
+if(c != EOF && c > '0' && c < '6')
+{}
+
+int c = '\xA3';
+printf("Character: %c Code: %d\n", c, c);
+
+int 
+wchar_t stddef.h L 
+char16_t uchar.h u
+char32_t uchar.h U
+
+\'
+\"
+\?
+\\
+\a
+\b
+\f
+\n
+\r
+\t
+\v
+\o, \oo, \ooo
+\xh[]
+\uhhh
+\Uhhhhh
+
+'\0' '\x0'
+'\033' '\33' '\33'
+'\376' '\x10f'
+'\417' '\xfe'
+L'\417' L'\x10f'
+  L'\xF82'
+  U'\x222B'
+
+"Hello \n"
 
 
+char doc_path[128] ".\\share\\doc"; ".\share\doc"
+printf("\aSee the documentation in the directory \"%s\"\n, doc_path");
 
 
+//error_exit()
+#include <stdlib.h>
+#include <stdio.h>
+
+void error_exit(unsigned int error_n)
+{
+  const char* error_msg[] = {"Unknown error code.\n"
+  				"Insufficient memory.\n"
+  				"Illegal memory access.\n" };
+  const size_t arr_len = sizeof(error_msg)/sizeof(error_msg[0]);
+
+  if(error_n >= arr_len)
+  {
+    error_n = 0;
+  }
+  fputs(error_msg[error_n], stderr);
+  exit(-1);
+}
 
 
+L"Here's a wide-string literal."
+
+double angle_alpha = 90.0/3;
+wprintf(L"Angle \u03b1 measures %lf defrees.\n", angle_alpha);
+
+#define PRG_NAME "EasyLine"
+char msg[] = "The installtion of " PRG_NAME
+  " is now complete."
+
+char info[]
+  "This is a string literal broken up into\
+	  several source lines.\nNow one more line:\n\
+	  that's enough, the string ends here.";
+
+L"\xA7" L"2 et cetera"
+
+char* p = "house";
+*p = 'm';
+
+char s[] = "house";
+s[0] = 'm';
 
 
+extern float fArr[];
 
+signed char
+int         signed, signed int
+short       short int, signed long, signed long int
+long        long int, signed long, signed long int
+long long   long long int, signed long long, signed long long int
+
+
+_Bool bool stdbool.h
+unsigned char 
+unsigned int   unsigned
+unsigned short   unsigned short int
+unsigned long    unsigned long int
+unsigned long long unsigned long long int
+
+
+char ch = 'A';
+printf("The charatcter %c has the character code %d.\n", ch, ch);
+for(; ch <= 'Z'; ++ch)
+{
+  printf("%2c", ch);
+}
 
 
 
