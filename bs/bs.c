@@ -410,14 +410,31 @@ _Noreturn void myAbort()
 }
 
 //binarySearch()
-const long* binarySearch()
+const long* binarySearch(const long val, const long array[], const int n)
 {
   const int m = n / 2;
-  if() {}
-  if() {}
-  if() {}
-  else {}
+  if(n <= 0) { return NULL; }
+  if(val == array[m]) { return array + m; }
+  if(val < array[m]) { return binarySearch(val, array, m); }
+  else { return binarySearch(val, array + m + 1, n - m - 1); }
 }
 
+void va_start(va_list argptr, lastparam);
+type va_end(va_list argptr);
+void va_end(va_list argptr);
+void va_copy(va_list dest, va_list src);
+
+//add()
+double add(const int n, ...)
+{
+  va_list argptr;
+  va_start(argptr, n);
+  {
+    sum += va_arg(argptr, double);
+  }
+
+  va_end(argptr);
+  return sum;
+}
 
 
