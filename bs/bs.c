@@ -1780,6 +1780,80 @@ printf("Cancel???(y/n) ");
 printf("Cancel?[y/n] ");
 printf("Cancel\?\?\?(y/n)");
 
+auto extern short while
+break float signed _Alignas
+case for sizeof _Alignof
+char goto static _Atomic
+const if struct _Bool
+continue inline switch _Complex
+default int typedef _Generic
+do long union _Imaginary
+double register unsigned _Noreturn
+else restrict void _Static_assert
+enum return volatile _Thread_local
+
+x dollar Break error_handler scale64
+
+1st_rank switch y/n x-ray
+
+double a = 0.5;
+
+#include <stdio.h>
+int test_func(char* s)
+{
+  if(s == NULL){
+    fprintf(stderr, "%s: received null pinter argument\n", __func__);
+    return -1;
+  }
+}
+
+
+
+struct pin {char pin[16]; /**/};
+_Bool check_pin(struct pin* pin)
+{
+  int len = strlen(pin->pin);
+}
+
+struct Node{ /**/
+  struct Node* next; };
+void printNode(const struct Node* ptrNode);
+int printList(const struct Node* first)
+{
+  struct Node* ptr = first;
+  while(ptr != NULL)
+  {
+    printNode(ptr);
+    ptr = ptr->next;
+  }
+}
+
+
+double x;
+long calc(double x);
+int main()
+{
+  long x = clac(2.5);
+  if(x < 0)
+  {
+    long x = clac(2.5);
+    if(x < 0)
+    {
+      float x = 0.0F;
+    }
+    x *= 2;
+    /**/
+  }
+}
+
+
+printf("Hello\n");
+printf
+(
+"Hello\n"		
+)
+;
+
 
 
 
