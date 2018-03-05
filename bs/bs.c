@@ -1488,15 +1488,191 @@ for(; ch <= 'Z'; ++ch)
   printf("%2c", ch);
 }
 
+char signed char unsigned char
+unsigned char
+int
+unsigned int
+short
+unsigned short
+long
+unsigned long
+long long 
+unsigned long long
+
+int iIndex,
+    iLimit = 1000;
+
+sizeof(type)
+
+sizeof expression
+
+//char int
+#include <stdio.h>
+#include <limits.h>
+
+int main(void)
+{
+  printf("Storage sizes and value ranges of the types char and int\n\n");
+  printf("The type char is %s.\n\n", CHAR_MIN < 0 ? "signed" :"unsigned");
+
+  printf(" Type Size(in bytes) Minimum Maximum\n"
+	"-------------------------------------\n");
+
+  printf(" char %8zu %20d %15d\n", sizeof(char), CHAR_MIN, CHAR_MAX );
+  printf(" int %8zu %20d %15d\n", sizeof(int), INT_MIN, INT_MAX );
+  
+  return 0;
+}
+
+unsigned int ui = UNIT_MAX;
+ui += 2;
+
+intN_t
+uintN_t
+
+int_leastN_t
+uint_leastN_t
+int_fastN_t
+uint_fastN_t
+intmax_t
+uintmax_t
+intptr_t
+uintptr_t
 
 
+#define ARR_SIZE 100
+int_fast32_t arr[ARR_SIZE];
+for(int i = 0; i < ARR_SIZE; ++i)
+{
+  arr[i] = (int_fast32_t) i;
+}
 
 
+typedef signed char int_fast8_t;
+
+int_least64_t = INT_LEAST64_MIN;
 
 
+float
+double
+long double
 
 
+float height = 1.2345, width = 2.3456;
+double area = height * width;
 
+float
+double
+long double
+
+//float
+#include <stdio.h>
+#include <float.h>
+
+int main(void)
+{
+  puts("\nCharacteristics of the type float\n");
+
+  printf("Storage size: %d bytes\n"
+	"Smallesxt positive value: %E\n"
+	"Greatest positive value: %E\n"
+	"Precision: %d decimal digits\n"
+	sizeof(float), FLT_MIN, FLT_MAX, FLT_DIG);
+
+  puts("\nAn example of float precision:\n");
+  double d_var = 12345.6;
+  float f_var = (float) d_var;
+  printf("The floating-point number " "%18.10f\n", d_var);
+  printf("has been stored in a variable\n"
+		  "of type float as the value " "%18.10f\n", f_var);
+  printf("The rouding error is " "%18.10f\n", d_var - f_var);
+
+  return 0;
+
+}
+
+
+float _Complex
+double _Complex
+long double _Complex
+
+#include <complex.h>
+
+double complex z = 1.0 + 2.0 * I;
+z *= I;
+
+enum[identifier][enumerator-list];
+
+enum color {black, red, green, yellow, blue, bule, white=7, gray};
+
+enum color bgColor = blue,
+	   fgColor = yellow;
+void setFgColor(enum color fgc);
+
+enum {OFF, ON, STOP = 0, GO = 1, CLOSED = 0, OPEN = 1};
+
+void perror(const char*);
+
+FILE* tmpfile(void);
+
+
+char filename[] = "memo.txt";
+if(fopen(filename, "r") == NULL)
+{
+  perror(filename);
+}
+
+
+void printf("I don't need this function's return value!\n");
+
+void* malloc(size_t size);
+void* realloc(void* ptr, size_t size);
+void free(void* ptr);
+
+//void
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+    //void srand(unsigned int seed);
+    //int rand(void);
+    //void* malloc(size_t size);
+    //void free(void* ptr)'
+    //void exit(int status);
+
+enum{ARR_LEN = 100};
+
+int main(void)
+{
+  int* const pNumbers = malloc(ARR_LEN * sizeof(int));
+
+  if(pNumbers == NULL)
+  {
+    fprintf(stderr, "Insufficient memory.\n");
+    exit(1);
+  }
+
+  srand((unsigned) time(NULL));
+  for(int i = 0; i < ARR_LEN; ++i)
+  {
+    pNUmbers[i] = rand() % 10000;
+  }
+  printf("\n%d random numbers between 0 and 9999:\n", ARR_LEN);
+  for(int i = 0; i < ARR_LEN; ++i)
+  {
+    printf("%6d", pNumbers[i]);
+    if(i % 10 == 9)
+    {
+      putchar('\n');
+    }
+  }
+  free(pNumber);
+  return 0;
+}
+
+_Alignof(int)
+
+_Alignas(4) short var;
+_Alignas(double) float x;
 
 
 
